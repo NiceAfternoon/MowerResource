@@ -75,5 +75,5 @@ jobs:
           publish_dir: ./deploy_staging
           keep_files: true
           enable_jekyll: true
-          exclude_assets: '.github'
+          exclude_assets: '.github/**'
           commit_message: "chore: auto sync to version ${{ env.REMOTE_VERSION }}"
