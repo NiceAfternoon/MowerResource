@@ -1061,7 +1061,7 @@ class Arknights数据处理器:
             found_gacha = False
 
             # 初始化version
-            version_path = os.path.join(RESOURCE_ROOT, "arknights_mower/version.json")
+            version_path = os.path.join(RESOURCE_ROOT, "arknights_mower/data/version.json")
             if os.path.exists(version_path):
                 with open(version_path, "r", encoding="utf-8") as f:
                     version_info = json.load(f)

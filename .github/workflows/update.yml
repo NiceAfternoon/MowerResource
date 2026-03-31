@@ -19,7 +19,7 @@ jobs:
         run: |
           REMOTE_VER=$(curl -sL -f https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version || echo "none")
           LOCAL_VER=$(cat version 2>/dev/null || echo "none")
-          LOCAL_JSON_VER=$(jq -r '.last_updated' resource/arknights_mower/version_info.json 2>/dev/null || echo "none")
+          LOCAL_JSON_VER=$(jq -r '.last_updated' resource/arknights_mower/data/version_info.json 2>/dev/null || echo "none")
           TARGET_JSON=$(curl -sL -f -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/arknights_mower/version_info.json" || echo '{"last_updated":"none"}')
           TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"')
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
@@ -63,7 +63,6 @@ jobs:
           arknights_mower/fonts/*
           arknights_mower/models/*
           arknights_mower/opname/*
-          arknights_mower/version_info.json
           ui/public/*
           ui/src/*
           EOF
