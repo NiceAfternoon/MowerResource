@@ -17,9 +17,13 @@ jobs:
       - name: Check Update
         id: check
         run: |
-          REMOTE_VER=$(curl -sL https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version)
-          LOCAL_VER=$(cat version 2>/dev/null || echo "none")
-          TARGET_VER=$(curl -sL -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version" || echo "none")
+          REMOTE_JSON=$(curl -sL https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version_info.json)
+          REMOTE_VER=$(echo $REMOTE_JSON | jq -r '.last_updated')
+          
+          LOCAL_VER=$(jq -r '.last_updated' version_info.json 2>/dev/null || echo "none")
+          
+          TARGET_JSON=$(curl -sL -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version_info.json")
+          TARGET_VER=$(echo $TARGET_JSON | jq -r '.last_updated' 2>/dev/null || echo "none")
 
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
@@ -27,17 +31,14 @@ jobs:
             echo "detected=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Sync Upstream and Generate
+      - name: Sync Upstream & Generate
         if: steps.check.outputs.detected == 'true'
         run: |
-
           rm -rf ArknightsGameResource
           git clone --depth 1 --filter=blob:none --sparse https://github.com/yuanyan3060/ArknightsGameResource.git
           cd ArknightsGameResource
           git sparse-checkout set gamedata/excel/ item/ avatar/ building/
           cd ..
-          
-          echo "${{ env.REMOTE_VERSION }}" > version
           
           pip install opencv-python-headless numpy Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
@@ -47,16 +48,24 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f ArknightsGameResource/ version resource/
-          git diff-index --quiet HEAD || (git commit -m "chore: sync to version ${{ env.REMOTE_VERSION }}" && git push)
+          git add -f ArknightsGameResource/ version_info.json resource/
+          git diff-index --quiet HEAD || (git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}" && git push)
 
-      - name: Push to Target Repo
+      - name: Deploy to Target Repo
+        if: steps.check.outputs.detected == 'true'
+        run: |
+          mkdir -p deploy_staging
+          cp -r resource/* deploy_staging/
+          cp version_info.json deploy_staging/
+
+      - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.SYNC_TOKEN }}
           external_repository: NiceAfternoon/arknights-mower
           publish_branch: feature/auto_get_res_new
-          publish_dir: .
+          publish_dir: ./deploy_staging
           keep_files: true
-          exclude_assets: '.github,ArknightsGameResource,generator,README.md'
+          enable_jekyll: true
+          commit_message: "chore: auto sync to version ${{ env.REMOTE_VERSION }}"

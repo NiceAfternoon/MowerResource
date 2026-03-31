@@ -1071,6 +1071,10 @@ class Arknights数据处理器:
                     "gacha": {"name": "未知", "time": 0},
                     "last_updated": ""
                 }
+            # 初始化上游version
+            versoin_upstream_path = os.path.join(project_root, "version")
+            with open(versoin_upstream_path, "r", encoding="utf-8") as f:
+                versoin_upstream_info = f.read().strip()
 
             # 获取最新活动
             basic_info = self.活动表.get("basicInfo", {})
@@ -1097,12 +1101,11 @@ class Arknights数据处理器:
                         found_gacha = True
                         break
 
-            # 无论是否有新活动，都更新最后检查时间
-            version_info["last_updated"] = datetime.now(SHA_TZ).strftime("%Y-%m-%d %H:%M:%S")
-            
-            with open(version_path, "w", encoding="utf-8") as f:
-                json.dump(version_info, f, indent=4, ensure_ascii=False)
-            print(f"资源版本信息已更新: {version_info['last_updated']}")
+            if found_activity or found_gacha:
+                version_info["last_updated"] = versoin_upstream_info
+                with open(version_path, "w", encoding="utf-8") as f:
+                    json.dump(version_info, f, indent=4, ensure_ascii=False)
+                print(f"资源版本信息已更新: {version_info['last_updated']}")
 
 
 roomType = {
