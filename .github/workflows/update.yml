@@ -2,7 +2,7 @@ name: Update Arknights Resource for Mower
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '5 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,73 +12,51 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - name: Get Remote Version
-        run: |
-          REMOTE_VER=$(curl -s https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version)
-          echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
-          
-          if [ -f "version" ]; then
-            LOCAL_VER=$(cat version)
-          else
-            LOCAL_VER="none"
-          fi
-          echo "LOCAL_VERSION=$LOCAL_VER" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
 
       - name: Check Update
-        id: check_step
+        id: check
         run: |
-          echo "Remote version: ${{ env.REMOTE_VERSION }}"
-          echo "Local version: ${{ env.LOCAL_VERSION }}"
-          
-          if [ "${{ env.REMOTE_VERSION }}" != "${{ env.LOCAL_VERSION }}" ]; then
+          REMOTE_VER=$(curl -sL https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version)
+          LOCAL_VER=$(cat version 2>/dev/null || echo "none")
+          TARGET_VER=$(curl -sL -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version" || echo "none")
+
+          echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
+
+          if [ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$REMOTE_VER" != "$TARGET_VER" ]; then
             echo "detected=true" >> $GITHUB_OUTPUT
-            echo "检测到版本更新，准备同步资源..."
-          else
-            echo "detected=false" >> $GITHUB_OUTPUT
-            echo "版本一致，跳过后续步骤。"
           fi
 
-      - name: Sync Upstream (Incremental)
-        if: steps.check_step.outputs.detected == 'true'
+      - name: Sync Upstream and Generate
+        if: steps.check.outputs.detected == 'true'
         run: |
-          REPO_URL="https://github.com/yuanyan3060/ArknightsGameResource.git"
-          
-          if [ ! -d "ArknightsGameResource/.git" ]; then
-            mkdir -p ArknightsGameResource
-            cd ArknightsGameResource
-            git init
-            git remote add origin $REPO_URL
-            git config core.sparseCheckout true
-            echo "gamedata/excel/" >> .git/info/sparse-checkout
-            echo "item/" >> .git/info/sparse-checkout
-            echo "avatar/" >> .git/info/sparse-checkout
-            echo "building/" >> .git/info/sparse-checkout
-            git pull origin main
-            cd ..
-          else
-            cd ArknightsGameResource
-            git pull origin main
-            cd ..
-          fi
+
+          rm -rf ArknightsGameResource
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/yuanyan3060/ArknightsGameResource.git
+          cd ArknightsGameResource
+          git sparse-checkout set gamedata/excel/ item/ avatar/ building/
+          cd ..
           
           echo "${{ env.REMOTE_VERSION }}" > version
-
-      - name: Generate Resource
-        if: steps.check_step.outputs.detected == 'true'
-        run: |
+          
           pip install opencv-python-headless numpy Pillow scikit-image scikit-learn
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/generator
-          python generator/auto_get_res_new.py
+          PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
 
-      - name: Commit and Push
-        if: steps.check_step.outputs.detected == 'true'
+      - name: Commit to Current Repo
+        if: steps.check.outputs.detected == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -f ArknightsGameResource/ version resource/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync to version ${{ env.REMOTE_VERSION }}" && git push)
+          git diff-index --quiet HEAD || (git commit -m "chore: sync to version ${{ env.REMOTE_VERSION }}" && git push)
+
+      - name: Push to Target Repo
+        if: steps.check.outputs.detected == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.SYNC_TOKEN }}
+          external_repository: NiceAfternoon/arknights-mower
+          publish_branch: feature/auto_get_res_new
+          publish_dir: .
+          keep_files: true
+          exclude_assets: '.github,ArknightsGameResource,generator,README.md'
