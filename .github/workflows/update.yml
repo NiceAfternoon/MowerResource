@@ -1,4 +1,4 @@
-name: Auto Sync Arknights Resource
+name: Update Arknights Resource for Mower
 
 on:
   schedule:
