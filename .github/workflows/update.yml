@@ -17,17 +17,17 @@ jobs:
       - name: Check Update
         id: check
         run: |
-          REMOTE_JSON=$(curl -sL https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version_info.json)
-          REMOTE_VER=$(echo $REMOTE_JSON | jq -r '.last_updated')
+          REMOTE_VER=$(curl -sL -f https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version || echo "none")
+          LOCAL_VER=$(cat version 2>/dev/null || echo "none")
+
+          LOCAL_JSON_VER=$(jq -r '.last_updated' resource/version_info.json 2>/dev/null || echo "none")
           
-          LOCAL_VER=$(jq -r '.last_updated' version_info.json 2>/dev/null || echo "none")
-          
-          TARGET_JSON=$(curl -sL -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version_info.json")
-          TARGET_VER=$(echo $TARGET_JSON | jq -r '.last_updated' 2>/dev/null || echo "none")
+          TARGET_JSON=$(curl -sL -f -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version_info.json" || echo '{"last_updated":"none"}')
+          TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"')
 
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
-          if [ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$REMOTE_VER" != "$TARGET_VER" ]; then
+          if [ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]; then
             echo "detected=true" >> $GITHUB_OUTPUT
           fi
 
@@ -40,6 +40,8 @@ jobs:
           git sparse-checkout set gamedata/excel/ item/ avatar/ building/
           cd ..
           
+          echo "${{ env.REMOTE_VERSION }}" > version
+          
           pip install opencv-python-headless numpy Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
 
@@ -48,15 +50,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f ArknightsGameResource/ version_info.json resource/
+          git add -f ArknightsGameResource/ version resource/
           git diff-index --quiet HEAD || (git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}" && git push)
 
-      - name: Deploy to Target Repo
+      - name: Prepare Staging and Push
         if: steps.check.outputs.detected == 'true'
         run: |
           mkdir -p deploy_staging
           cp -r resource/* deploy_staging/
-          cp version_info.json deploy_staging/
 
       - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
