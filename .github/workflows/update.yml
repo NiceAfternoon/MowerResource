@@ -69,7 +69,7 @@ jobs:
         if: steps.check.outputs.detected == 'true'
         run: |
           mkdir target_repo && cd target_repo
-          git init
+          git init -b feature/auto_get_res_new
 
           git remote add origin https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/NiceAfternoon/arknights-mower.git
           
