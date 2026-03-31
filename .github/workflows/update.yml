@@ -80,5 +80,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add ArknightsGameResource/ version resource/
+          git add -f ArknightsGameResource/ version resource/
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync to version ${{ env.REMOTE_VERSION }}" && git push)
