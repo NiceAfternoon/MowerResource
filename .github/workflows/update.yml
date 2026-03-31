@@ -19,20 +19,15 @@ jobs:
         run: |
           REMOTE_VER=$(curl -sL -f https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version || echo "none")
           LOCAL_VER=$(cat version 2>/dev/null || echo "none")
-          
           LOCAL_JSON_VER=$(jq -r '.last_updated' resource/version_info.json 2>/dev/null || echo "none")
-          
           TARGET_JSON=$(curl -sL -f -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version_info.json" || echo '{"last_updated":"none"}')
           TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"')
-
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
           if [ "$REMOTE_VER" != "none" ] && ([ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$TARGET_JSON_VER" = "none" ] || [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]); then
             echo "detected=true" >> $GITHUB_OUTPUT
-            echo "检测到更新或主仓库缺失文件，开始同步。"
           else
             echo "detected=false" >> $GITHUB_OUTPUT
-            echo "版本一致且主仓库文件完整，跳过。"
           fi
 
       - name: Sync Upstream & Generate
@@ -43,9 +38,7 @@ jobs:
           cd ArknightsGameResource
           git sparse-checkout set gamedata/excel/ item/ avatar/ building/
           cd ..
-          
           echo "${{ env.REMOTE_VERSION }}" > version
-          
           pip install opencv-python-headless numpy Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
 
@@ -57,35 +50,26 @@ jobs:
           git add -f ArknightsGameResource/ version resource/
           git diff-index --quiet HEAD || (git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}" && git push)
 
-      - name: Prepare Staging
-        if: steps.check.outputs.detected == 'true'
-        run: |
-          mkdir -p deploy_staging
-          if [ -d "resource" ]; then
-            cp -r resource/* deploy_staging/
-          fi
-
       - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
         run: |
           mkdir target_repo && cd target_repo
           git init -b feature/auto_get_res_new
-
           git remote add origin https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/NiceAfternoon/arknights-mower.git
-          
           git config core.sparseCheckout true
           
-          echo "arknights_mower/data/*" >> .git/info/sparse-checkout
-          echo "arknights_mower/fonts/*" >> .git/info/sparse-checkout
-          echo "arknights_mower/models/*" >> .git/info/sparse-checkout
-          echo "arknights_mower/opname/*" >> .git/info/sparse-checkout
-          echo "ui/public/*" >> .git/info/sparse-checkout
-          echo "ui/src/*" >> .git/info/sparse-checkout
-          echo "version_info.json" >> .git/info/sparse-checkout
+          cat <<EOF > .git/info/sparse-checkout
+          arknights_mower/data/*
+          arknights_mower/fonts/*
+          arknights_mower/models/*
+          arknights_mower/opname/*
+          ui/public/*
+          ui/src/*
+          /*.json
+          EOF
           
-          git pull --depth 1 origin feature/auto_get_res_new
-
-          cp -r ../resource/* .
+          git pull --depth 1 origin feature/auto_get_res_new || true
+          cp -rf ../resource/* .
           
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -94,6 +78,4 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}"
             git push origin feature/auto_get_res_new
-          else
-            echo "没有检测到文件变动，跳过推送。"
           fi
