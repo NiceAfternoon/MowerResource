@@ -19,7 +19,7 @@ jobs:
         run: |
           REMOTE_VER=$(curl -sL -f https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version || echo "none")
           LOCAL_VER=$(cat version 2>/dev/null || echo "none")
-
+          
           LOCAL_JSON_VER=$(jq -r '.last_updated' resource/version_info.json 2>/dev/null || echo "none")
           
           TARGET_JSON=$(curl -sL -f -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/version_info.json" || echo '{"last_updated":"none"}')
@@ -27,8 +27,12 @@ jobs:
 
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
-          if [ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]; then
+          if [ "$REMOTE_VER" != "none" ] && ([ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$TARGET_JSON_VER" = "none" ] || [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]); then
             echo "detected=true" >> $GITHUB_OUTPUT
+            echo "检测到更新或主仓库缺失文件，开始同步。"
+          else
+            echo "detected=false" >> $GITHUB_OUTPUT
+            echo "版本一致且主仓库文件完整，跳过。"
           fi
 
       - name: Sync Upstream & Generate
@@ -53,11 +57,13 @@ jobs:
           git add -f ArknightsGameResource/ version resource/
           git diff-index --quiet HEAD || (git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}" && git push)
 
-      - name: Prepare Staging and Push
+      - name: Prepare Staging
         if: steps.check.outputs.detected == 'true'
         run: |
           mkdir -p deploy_staging
-          cp -r resource/* deploy_staging/
+          if [ -d "resource" ]; then
+            cp -r resource/* deploy_staging/
+          fi
 
       - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
