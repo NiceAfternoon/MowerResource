@@ -17,18 +17,34 @@ jobs:
       - name: Check Update
         id: check
         run: |
-          REMOTE_VER=$(curl -sL -f https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version || echo "none")
+          REMOTE_VER=$(curl -fsS https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version 2>/dev/null || true)
+          REMOTE_VER=${REMOTE_VER:-none}
+          REMOTE_VER=$(echo "$REMOTE_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
           LOCAL_VER=$(cat version 2>/dev/null || echo "none")
-          LOCAL_JSON_VER=$(jq -r '.last_updated' resource/arknights_mower/data/version_info.json 2>/dev/null || echo "none")
-          TARGET_JSON=$(curl -sL -f -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/arknights_mower/data/version_info.json" || echo '{"last_updated":"none"}')
-          TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"')
+          LOCAL_VER=$(echo "$LOCAL_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          LOCAL_JSON_VER=$(jq -r '.last_updated // "none"' resource/arknights_mower/data/version_info.json 2>/dev/null || echo "none")
+          LOCAL_JSON_VER=$(echo "$LOCAL_JSON_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          TARGET_JSON=$(curl -fsS -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/arknights_mower/data/version_info.json" 2>/dev/null || echo '{"last_updated":"none"}')
+          TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"' 2>/dev/null || echo "none")
+          TARGET_JSON_VER=$(echo "$TARGET_JSON_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
-          if [ "$REMOTE_VER" != "none" ] && ([ "$REMOTE_VER" != "$LOCAL_VER" ] || [ "$TARGET_JSON_VER" = "none" ] || [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]); then
-            echo "detected=true" >> $GITHUB_OUTPUT
-          else
+          if [ "$REMOTE_VER" = "none" ]; then
             echo "detected=false" >> $GITHUB_OUTPUT
+            exit 0
           fi
+
+          if [ "$REMOTE_VER" != "$LOCAL_VER" ]; then
+            echo "detected=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          if [ "$TARGET_JSON_VER" != "none" ] && [ "$LOCAL_JSON_VER" != "$TARGET_JSON_VER" ]; then
+            echo "detected=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "detected=false" >> $GITHUB_OUTPUT
 
       - name: Sync Upstream & Generate
         if: steps.check.outputs.detected == 'true'
@@ -57,7 +73,6 @@ jobs:
           git init -b feature/auto_get_res_new
           git remote add origin https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/NiceAfternoon/arknights-mower.git
           git config core.sparseCheckout true
-          
           cat <<EOF > .git/info/sparse-checkout
           arknights_mower/data/*
           arknights_mower/fonts/*
@@ -66,14 +81,11 @@ jobs:
           ui/public/*
           ui/src/*
           EOF
-          
           git pull --depth 1 origin feature/auto_get_res_new || true
           cp -rf ../resource/* .
-          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}"
             git push origin feature/auto_get_res_new
