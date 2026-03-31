@@ -1,0 +1,82 @@
+name: Auto Sync Arknights Resource
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check-and-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Remote Version
+        run: |
+          REMOTE_VER=$(curl -s https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/version)
+          echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
+          
+          if [ -f "version" ]; then
+            LOCAL_VER=$(cat version)
+          else
+            LOCAL_VER="none"
+          fi
+          echo "LOCAL_VERSION=$LOCAL_VER" >> $GITHUB_ENV
+
+      - name: Check Update
+        id: check_step
+        run: |
+          echo "Remote version: ${{ env.REMOTE_VERSION }}"
+          echo "Local version: ${{ env.LOCAL_VERSION }}"
+          
+          if [ "${{ env.REMOTE_VERSION }}" != "${{ env.LOCAL_VERSION }}" ]; then
+            echo "detected=true" >> $GITHUB_OUTPUT
+            echo "版本已更新，准备拉取资源..."
+          else
+            echo "detected=false" >> $GITHUB_OUTPUT
+            echo "版本未变化，跳过更新。"
+          fi
+
+      - name: Sync Upstream
+        if: steps.check_step.outputs.detected == 'true'
+        run: |
+          REPO_URL="https://github.com/yuanyan3060/ArknightsGameResource.git"
+          
+          mkdir -p temp_res
+          cd temp_res
+          git init
+          git remote add origin $REPO_URL
+          git config core.sparseCheckout true
+          
+          echo "gamedata/excel/" >> .git/info/sparse-checkout
+          echo "item/" >> .git/info/sparse-checkout
+          echo "avatar/" >> .git/info/sparse-checkout
+          echo "building/" >> .git/info/sparse-checkout
+          
+          git pull origin main
+          cd ..
+          
+          rm -rf ArknightsGameResource
+          mv temp_res ArknightsGameResource
+          
+          echo "${{ env.REMOTE_VERSION }}" > version
+
+      - name: Generate Resource
+        if: steps.check_step.outputs.detected == 'true'
+        run: |
+          pip install opencv-python numpy Pillow scikit-image scikit-learn
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/generator
+          python generator/auto_get_res_new.py
+
+      - name: Commit Changes
+        if: steps.check_step.outputs.detected == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ArknightsGameResource/ version resource/
+          git commit -m "chore: sync to version ${{ env.REMOTE_VERSION }}"
+          git push
