@@ -2,6 +2,7 @@ import json
 import lzma
 import os
 import pickle
+import hashlib
 import re
 from datetime import datetime, timezone, timedelta
 import time
@@ -180,7 +181,7 @@ class Arknights数据处理器:
                 else:
                     print(f"可以复制，但是未找到: {源文件路径}")
         with open(
-            f"{RESOURCE_ROOT}/arknights_mower/data/key_mapping.json", "w", encoding="utf8"
+            f"{RESOURCE_ROOT}/arknights_mower/data/key_mapping.json", "w", encoding="utf-8"
         ) as json_file:
             json.dump(self.物品_名称对, json_file, ensure_ascii=False, indent=4)
         print()
@@ -1050,7 +1051,7 @@ class Arknights数据处理器:
                 "items": 子类材料,
             }
         with open(
-            f"{RESOURCE_ROOT}/arknights_mower/data/workshop_formula.json", "w", encoding="utf8"
+            f"{RESOURCE_ROOT}/arknights_mower/data/workshop_formula.json", "w", encoding="utf-8"
         ) as json_file:
             json.dump(配方类别, json_file, ensure_ascii=False, indent=4)
 
@@ -1069,12 +1070,13 @@ class Arknights数据处理器:
                 version_info = {
                     "activity": {"name": "未知", "time": 0},
                     "gacha": {"name": "未知", "time": 0},
-                    "last_updated": ""
+                    "last_updated": "",                        
+                    "files": {}
                 }
             # 初始化上游version
-            versoin_upstream_path = os.path.join(project_root, "version")
-            with open(versoin_upstream_path, "r", encoding="utf-8") as f:
-                versoin_upstream_info = f.read().strip()
+            version_upstream_path = os.path.join(project_root, "version")
+            with open(version_upstream_path, "r", encoding="utf-8") as f:
+                version_upstream_info = f.read().strip()
 
             # 获取最新活动
             basic_info = self.活动表.get("basicInfo", {})
@@ -1086,7 +1088,6 @@ class Arknights数据处理器:
                     if not any(key in a_type for key in a_filterlist):
                         version_info["activity"]["name"] = activity.get("name")
                         version_info["activity"]["time"] = activity.get("startTime")
-                        found_activity = True
                         break
             
             # 获取最新卡池
@@ -1098,15 +1099,33 @@ class Arknights数据处理器:
                     if "适合多种场合的强力干员" not in g_name:
                         version_info["gacha"]["name"] = g_name
                         version_info["gacha"]["time"] = gacha.get("openTime")
-                        found_gacha = True
                         break
 
-            if found_activity or found_gacha:
-                version_info["last_updated"] = versoin_upstream_info
-                with open(version_path, "w", encoding="utf-8") as f:
-                    json.dump(version_info, f, indent=4, ensure_ascii=False)
-                print(f"资源版本信息已更新: {version_info['last_updated']}")
+            version_info["last_updated"] = version_upstream_info
+            version_info["files"] = self.generate_md5(RESOURCE_ROOT)
+            with open(version_path, "w", encoding="utf-8") as f:
+                json.dump(version_info, f, indent=4, ensure_ascii=False)
+            print(f"资源版本信息已更新: {version_info['last_updated']}")
 
+    def md5_file(self, path, chunk_size=1024 * 1024):
+        md5 = hashlib.md5()
+        with open(path, "rb") as f:
+            while True:
+                data = f.read(chunk_size)
+                if not data:
+                    break
+                md5.update(data)
+        return md5.hexdigest()
+
+    def generate_md5(self, dir):
+        result_md5 = {}
+        # 递归遍历目录并计算md5
+        for base, _, files in os.walk(dir):
+            for name in files:
+                full = os.path.join(base, name)
+                rel = os.path.relpath(full, dir)
+                result_md5[rel.replace("\\", "/")] = self.md5_file(full)
+        return result_md5
 
 roomType = {
     "POWER": "发电站",
