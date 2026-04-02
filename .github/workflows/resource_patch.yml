@@ -1,0 +1,46 @@
+name: 自动生成资源差分包
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'resource/arknights_mower/data/version.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-generation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests urllib3
+
+      - name: Generate Patches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/generate_patch.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add patch/
+          # 检查是否有文件变化
+          if git diff --cached --quiet; then
+            echo "没有补丁更新。"
+          else
+            git commit -m "chore(patch): update resource patches to version $(jq -r '.last_updated' data/version.json)"
+            git push
+          fi
