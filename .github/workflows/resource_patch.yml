@@ -3,44 +3,62 @@ name: 自动生成资源差分包
 on:
   push:
     branches: [ "main" ]
+    # 只有当资源目录或版本号文件变化时才触发，节省 Action 资源
     paths:
       - 'resource/arknights_mower/data/version.json'
-  workflow_dispatch:
+  workflow_dispatch: # 允许在 GitHub 页面上手动点击运行
 
 permissions:
-  contents: write
+  contents: write # 赋予 Action 推送代码回仓库的权限
 
 jobs:
   patch-generation:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 检出当前仓库代码
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # 获取完整提交历史
 
-      - name: Setup Python
+      - name: 安装系统解压工具 (支持 RAR)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unrar
+
+      - name: 设置 Python 环境
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
-      - name: Install dependencies
-        run: pip install requests urllib3
+      - name: 安装 Python 依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests urllib3 rarfile
 
-      - name: Generate Patches
+      - name: 执行差分包生成脚本
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python generator/generate_patch.py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 用于解除 GitHub API 请求频率限制
+        run: |
+          python generator/generate_patch.py
 
-      - name: Commit and Push
+      - name: 提交并推送到本仓库
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # 仅在 patch 文件夹有变动时才提交
           git add patch/
-          # 检查是否有文件变化
           if git diff --cached --quiet; then
-            echo "没有补丁更新。"
+            echo "没有新的差分包生成，跳过推送。"
           else
-            git commit -m "chore(patch): update resource patches to version $(jq -r '.last_updated' data/version.json)"
+            # 获取当前资源版本号用于 Commit Message
+            RES_VER=$(jq -r '.last_updated' resource/arknights_mower/data/version.json)
+            git commit -m "chore(patch): 自动更新增量包至资源版本 $RES_VER"
             git push
           fi
+
+      - name: 失败任务告警
+        if: failure()
+        run: |
+          echo "::error::差分包生成任务失败！请检查脚本日志，确保主仓库 Release 包含可用的 .rar 或 .zip 全量包。"
