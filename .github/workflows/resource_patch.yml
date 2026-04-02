@@ -30,7 +30,7 @@ jobs:
       - name: Generate Patches
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/generate_patch.py
+        run: python generator/generate_patch.py
 
       - name: Commit and Push
         run: |
