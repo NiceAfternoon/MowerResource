@@ -52,14 +52,17 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _cleanup_old_patches(self):
-        print(f"正在清理目标版本不是 {self.latest_release_tag} 的旧包...")
-        target_suffix = f"-to-{self.latest_release_tag}"
+        """清理目标资源版本不一致的旧包"""
+        print(f"正在清理目标版本不是 {self.target_res_version} 的旧包...")
+        target_suffix = f"-to-{self.target_res_version}"
         
         for item in PATCH_DIR.glob("from-*-to-*.zip"):
             if target_suffix not in item.name:
+                print(f"删除旧压缩包: {item.name}")
                 item.unlink()
         for item in PATCH_DIR.glob("from-*-to-*.json"):
             if target_suffix not in item.name:
+                print(f"删除旧元数据: {item.name}")
                 item.unlink()
 
     def _download_and_extract_base(self, tag_name: str) -> Path:
@@ -78,44 +81,45 @@ class PatchGenerator:
         real_tag = data.get("tag_name")
         assets = data.get("assets", [])
         
-        # 逻辑修改：根据截图匹配 {tag}_Windows.rar 或包含 tag 的压缩包
         dl_url = None
+        ext = ""
         for asset in assets:
             name = asset["name"]
-            # 匹配截图中的格式：v4.1.2_Windows.rar 或通用包含 tag 的包
             if real_tag in name and (name.endswith(".rar") or name.endswith(".zip")):
                 dl_url = asset["browser_download_url"]
                 ext = ".rar" if name.endswith(".rar") else ".zip"
                 break
         
         if not dl_url:
-            raise ValueError(f"未在 Release {real_tag} 中找到对应的压缩包 (需包含标签名且为 .rar 或 .zip)")
+            raise ValueError(f"未在 Release {real_tag} 中找到对应的压缩包")
 
         archive_path = self.tmp_dir / f"{real_tag}{ext}"
         with self.session.get(dl_url, stream=True, timeout=15) as r, open(archive_path, "wb") as f:
             r.raise_for_status()
             shutil.copyfileobj(r.raw, f)
 
-        # 根据后缀选择解压方式
         if ext == ".zip":
             with zipfile.ZipFile(archive_path, 'r') as z:
                 z.extractall(extract_path)
         else:
-            # RAR 需要依赖环境中安装了 unrar/unzip 工具
-            try:
-                with rarfile.RarFile(archive_path) as rf:
-                    rf.extractall(extract_path)
-            except Exception as e:
-                print(f"解压 RAR 失败，请确保 CI 环境安装了 unrar 且执行了 pip install rarfile: {e}")
-                raise
+            with rarfile.RarFile(archive_path) as rf:
+                rf.extractall(extract_path)
 
         archive_path.unlink()
         return extract_path
 
     def _get_file_tree(self, directory: Path) -> dict:
+        """生成目录树，严格排除临时文件和无关目录"""
         tree = {}
+        # 必须排除的目录名
+        exclude_dirs = {'.git', 'patch', '.tmp_patch_build', '__pycache__'}
+        
         for filepath in directory.rglob("*"):
-            if filepath.is_file() and '.git' not in filepath.parts and 'patch' not in filepath.parts:
+            # 如果路径中包含任何需要排除的目录，则跳过
+            if any(part in filepath.parts for part in exclude_dirs):
+                continue
+                
+            if filepath.is_file():
                 rel_path = filepath.relative_to(directory).as_posix()
                 tree[rel_path] = self._md5(filepath)
         return tree
@@ -134,16 +138,17 @@ class PatchGenerator:
             removed = [f for f in old_tree if f not in new_tree]
 
             if not (added or modified or removed):
-                print(f"版本 {base_tag} 与当前资源库无差异。")
+                print(f"软件版本 {base_tag} 对应的资源与当前无差异，跳过。")
                 return
 
-            zip_name = f"from-{base_tag}-to-{self.latest_release_tag}.zip"
-            json_name = f"from-{base_tag}-to-{self.latest_release_tag}.json"
+            zip_name = f"from-{base_tag}-to-{self.target_res_version}.zip"
+            json_name = f"from-{base_tag}-to-{self.target_res_version}.json"
             tmp_zip = PATCH_DIR / f"{zip_name}.tmp"
             tmp_json = PATCH_DIR / f"{json_name}.tmp"
 
             with zipfile.ZipFile(tmp_zip, 'w', zipfile.ZIP_DEFLATED) as z:
                 for file_path in added + modified:
+                    # 再次确保不把 patch 目录或临时目录打包进去
                     z.write(current_dir / file_path, file_path)
 
             meta = {
@@ -162,7 +167,7 @@ class PatchGenerator:
 
             os.replace(tmp_zip, PATCH_DIR / zip_name)
             os.replace(tmp_json, PATCH_DIR / json_name)
-            print(f"成功生成: {zip_name}")
+            print(f"成功生成增量包: {zip_name} (Size: {meta['size']})")
 
         except Exception as e:
             print(f"为 {base_tag} 生成补丁失败: {str(e)}")
@@ -171,11 +176,16 @@ class PatchGenerator:
             raise
 
     def run(self):
+        # 1. 以资源版本为基准清理
         self._cleanup_old_patches()
+        
+        # 2. 收集需要对比的软件版本
         base_versions = {self.latest_release_tag}
+        # 扫描 patch 目录，找出历史遗留的 base 版本
         for meta_file in PATCH_DIR.glob("from-*-to-*.json"):
             parts = meta_file.name.split("-")
             if len(parts) >= 2:
+                # 格式: from-[1]-to-...
                 base_versions.add(parts[1])
 
         for base in base_versions:
