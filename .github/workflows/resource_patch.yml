@@ -3,13 +3,12 @@ name: 自动生成资源差分包
 on:
   push:
     branches: [ "main" ]
-    # 只有当资源目录或版本号文件变化时才触发，节省 Action 资源
     paths:
       - 'resource/arknights_mower/data/version.json'
-  workflow_dispatch: # 允许在 GitHub 页面上手动点击运行
+  workflow_dispatch: # 允许手动点击运行
 
 permissions:
-  contents: write # 赋予 Action 推送代码回仓库的权限
+  contents: write # 赋予 Action 推送权限
 
 jobs:
   patch-generation:
@@ -29,7 +28,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: 安装 Python 依赖
         run: |
@@ -38,7 +36,7 @@ jobs:
 
       - name: 执行差分包生成脚本
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 用于解除 GitHub API 请求频率限制
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python generator/generate_patch.py
 
@@ -52,7 +50,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "没有新的差分包生成，跳过推送。"
           else
-            # 获取当前资源版本号用于 Commit Message
+            # 提取资源版本号
             RES_VER=$(jq -r '.last_updated' resource/arknights_mower/data/version.json)
             git commit -m "chore(patch): 自动更新增量包至资源版本 $RES_VER"
             git push
@@ -61,4 +59,4 @@ jobs:
       - name: 失败任务告警
         if: failure()
         run: |
-          echo "::error::差分包生成任务失败！请检查脚本日志，确保主仓库 Release 包含可用的 .rar 或 .zip 全量包。"
+          echo "::error::任务失败！请确认主仓库 Release 是否包含对应版本的 .rar 包，或检查 tools/generate_patch.py 逻辑。"
