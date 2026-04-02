@@ -17,7 +17,8 @@ DATA_VERSION_FILE = Path("resource/arknights_mower/data/version.json")
 class PatchGenerator:
     def __init__(self):
         self.session = self._build_retry_session()
-        self.target_version = self._get_target_version()
+        self.latest_release_tag = self._get_latest_release_tag()
+        self.target_res_version = self._get_target_res_version()
         self.tmp_dir = Path(".tmp_patch_build")
         
         PATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -33,9 +34,16 @@ class PatchGenerator:
             session.headers.update({"Authorization": f"Bearer {token}"})
         return session
 
-    def _get_target_version(self):
+    def _get_latest_release_tag(self):
+        """从主仓库获取最新的 Release Tag"""
+        resp = self.session.get(MAIN_REPO_API, timeout=10)
+        resp.raise_for_status()
+        return resp.json().get("tag_name")
+
+    def _get_target_res_version(self):
+        """获取当前资源版本号 (last_updated)"""
         with open(DATA_VERSION_FILE, "r", encoding="utf-8") as f:
-            return json.load(f).get("last_updated", "unknown_target")
+            return json.load(f).get("last_updated", "unknown_res")
 
     def _md5(self, filepath: Path) -> str:
         hash_md5 = hashlib.md5()
@@ -45,15 +53,17 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _cleanup_old_patches(self):
-        """清理 target_version 不一致的陈旧增量包"""
-        print(f"正在清理目标版本不是 {self.target_version} 的旧包...")
-        # 匹配格式: from-{base}-to-{target}.zip/json
+        """清理目标版本不是当前主仓库最新 Tag 的旧包"""
+        print(f"正在清理目标版本不是 {self.latest_release_tag} 的旧包...")
+        # 目标匹配: from-*-to-{latest_release_tag}.zip/json
+        target_suffix = f"-to-{self.latest_release_tag}"
+        
         for item in PATCH_DIR.glob("from-*-to-*.zip"):
-            if f"-to-{self.target_version}.zip" not in item.name:
+            if target_suffix not in item.name:
                 print(f"删除旧压缩包: {item.name}")
                 item.unlink()
         for item in PATCH_DIR.glob("from-*-to-*.json"):
-            if f"-to-{self.target_version}.json" not in item.name:
+            if target_suffix not in item.name:
                 print(f"删除旧元数据: {item.name}")
                 item.unlink()
 
@@ -63,7 +73,9 @@ class PatchGenerator:
             return extract_path
 
         print(f"获取基础版本全量包: {tag_name}")
-        api_url = MAIN_REPO_API if tag_name == "latest" else f"https://api.github.com/repos/ArkMowers/arknights-mower/releases/tags/{tag_name}"
+        api_url = f"https://api.github.com/repos/ArkMowers/arknights-mower/releases/tags/{tag_name}"
+        if tag_name == self.latest_release_tag:
+            api_url = MAIN_REPO_API
 
         resp = self.session.get(api_url, timeout=10)
         resp.raise_for_status()
@@ -71,9 +83,11 @@ class PatchGenerator:
         real_tag = data.get("tag_name")
         assets = data.get("assets", [])
         
-        dl_url = next((a["browser_download_url"] for a in assets if "full" in a["name"] and a["name"].endswith(".zip")), None)
+        # 核心逻辑修改：寻找文件名包含该 tag 名字的 zip
+        dl_url = next((a["browser_download_url"] for a in assets if real_tag in a["name"] and a["name"].endswith(".zip")), None)
+        
         if not dl_url:
-            raise ValueError(f"未在 {real_tag} 中找到全量包")
+            raise ValueError(f"未在 Release {real_tag} 中找到包含标签名的 zip 包")
 
         zip_path = self.tmp_dir / f"{real_tag}.zip"
         with self.session.get(dl_url, stream=True, timeout=15) as r, open(zip_path, "wb") as f:
@@ -89,7 +103,6 @@ class PatchGenerator:
     def _get_file_tree(self, directory: Path) -> dict:
         tree = {}
         for filepath in directory.rglob("*"):
-            # 排除 patch 目录自身和 git 相关文件
             if filepath.is_file() and '.git' not in filepath.parts and 'patch' not in filepath.parts:
                 rel_path = filepath.relative_to(directory).as_posix()
                 tree[rel_path] = self._md5(filepath)
@@ -109,12 +122,12 @@ class PatchGenerator:
             removed = [f for f in old_tree if f not in new_tree]
 
             if not (added or modified or removed):
-                print(f"版本 {base_tag} 与当前版本无差异。")
+                print(f"版本 {base_tag} 与当前资源库无差异，跳过生成。")
                 return
 
-            # 新命名规则：from-{base}-to-{target}.zip
-            zip_name = f"from-{base_tag}-to-{self.target_version}.zip"
-            json_name = f"from-{base_tag}-to-{self.target_version}.json"
+            # 文件名带上主仓库的最新 Tag
+            zip_name = f"from-{base_tag}-to-{self.latest_release_tag}.zip"
+            json_name = f"from-{base_tag}-to-{self.latest_release_tag}.json"
             tmp_zip = PATCH_DIR / f"{zip_name}.tmp"
             tmp_json = PATCH_DIR / f"{json_name}.tmp"
 
@@ -124,7 +137,8 @@ class PatchGenerator:
 
             meta = {
                 "base_version": base_tag,
-                "target_version": self.target_version,
+                "target_software_version": self.latest_release_tag,
+                "target_resource_version": self.target_res_version,
                 "files_added": added,
                 "files_modified": modified,
                 "files_removed": removed,
@@ -137,34 +151,33 @@ class PatchGenerator:
 
             os.replace(tmp_zip, PATCH_DIR / zip_name)
             os.replace(tmp_json, PATCH_DIR / json_name)
-            print(f"成功生成: {zip_name}")
+            print(f"成功生成增量包: {zip_name}")
 
         except Exception as e:
-            print(f"生成失败: {str(e)}")
+            print(f"为 {base_tag} 生成补丁失败: {str(e)}")
             if tmp_zip.exists(): tmp_zip.unlink()
             if tmp_json.exists(): tmp_json.unlink()
             raise
 
     def run(self):
-        # 1. 清理过期的增量包
+        # 1. 以主仓库 Release Tag 为准清理旧包
         self._cleanup_old_patches()
 
-        # 2. 获取主仓库最新 Tag 并生成基础差分
-        latest_info = self.session.get(MAIN_REPO_API).json()
-        latest_tag = latest_info.get("tag_name")
+        # 2. 确定所有需要生成补丁的基准版本 (Base Tags)
+        # 始终包含最新的那个 tag
+        base_versions = {self.latest_release_tag}
         
-        # 收集所有需要更新的 base_versions
-        # 包括当前的 latest 和 patch/ 目录下已经存在的 base
-        base_versions = {latest_tag}
+        # 同时从现有的 patch 文件夹中继承旧的 base_version
         for meta_file in PATCH_DIR.glob("from-*-to-*.json"):
-            # 从文件名提取 base: from-{base}-to-{target}.json
             parts = meta_file.name.split("-")
-            if len(parts) >= 2:
+            # 格式: from-[1]-to-[3]
+            if len(parts) >= 4:
                 base_versions.add(parts[1])
 
+        # 3. 遍历生成
         for base in base_versions:
-            if base and base != self.target_version:
-                self.generate_patch(base)
+            # 如果 base 等于最新的 target 且资源没变，generate_patch 内部会跳过
+            self.generate_patch(base)
 
         shutil.rmtree(self.tmp_dir, ignore_errors=True)
 
