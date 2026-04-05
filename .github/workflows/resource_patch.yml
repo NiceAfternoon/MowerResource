@@ -5,10 +5,10 @@ on:
     branches: [ "main" ]
     paths:
       - 'resource/arknights_mower/data/version.json'
-  workflow_dispatch: # 允许手动点击运行
+  workflow_dispatch:
 
 permissions:
-  contents: write # 赋予 Action 推送权限
+  contents: write
 
 jobs:
   patch-generation:
@@ -17,12 +17,12 @@ jobs:
       - name: 检出当前仓库代码
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取完整提交历史
+          fetch-depth: 0
 
       - name: 安装系统解压工具 (支持 RAR)
         run: |
           sudo apt-get update
-          sudo apt-get install -y unrar
+          sudo apt-get install -y unrar jq
 
       - name: 设置 Python 环境
         uses: actions/setup-python@v5
@@ -45,18 +45,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 仅在 patch 文件夹有变动时才提交
           git add patch/
           if git diff --cached --quiet; then
             echo "没有新的差分包生成，跳过推送。"
           else
-            # 提取资源版本号
-            RES_VER=$(jq -r '.last_updated' resource/arknights_mower/data/version.json)
-            git commit -m "chore(patch): 自动更新增量包至资源版本 $RES_VER"
+            RES_VER=$(jq -r '.res_version // .last_updated' resource/arknights_mower/data/version.json)
+            git commit -m "chore(patch): 自动生成增量包至资源版本 $RES_VER"
             git push
           fi
 
       - name: 失败任务告警
         if: failure()
         run: |
-          echo "::error::任务失败！请确认主仓库 Release 是否包含对应版本的 .rar 包，或检查 tools/generate_patch.py 逻辑。"
+          echo "::error::任务失败！请确认主仓库 Release 是否包含对应版本的 .rar/.zip 包，或检查 generate_patch.py 逻辑。"

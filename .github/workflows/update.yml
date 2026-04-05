@@ -22,11 +22,14 @@ jobs:
           REMOTE_VER=$(echo "$REMOTE_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
           LOCAL_VER=$(cat version 2>/dev/null || echo "none")
           LOCAL_VER=$(echo "$LOCAL_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          LOCAL_JSON_VER=$(jq -r '.last_updated // "none"' resource/arknights_mower/data/version_info.json 2>/dev/null || echo "none")
+          
+          LOCAL_JSON_VER=$(jq -r '.last_updated // "none"' resource/arknights_mower/data/version.json 2>/dev/null || echo "none")
           LOCAL_JSON_VER=$(echo "$LOCAL_JSON_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-          TARGET_JSON=$(curl -fsS -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/arknights_mower/data/version_info.json" 2>/dev/null || echo '{"last_updated":"none"}')
+          
+          TARGET_JSON=$(curl -fsS -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" "https://raw.githubusercontent.com/NiceAfternoon/arknights-mower/feature/auto_get_res_new/arknights_mower/data/version.json" 2>/dev/null || echo '{"last_updated":"none"}')
           TARGET_JSON_VER=$(echo "$TARGET_JSON" | jq -r '.last_updated // "none"' 2>/dev/null || echo "none")
           TARGET_JSON_VER=$(echo "$TARGET_JSON_VER" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+          
           echo "REMOTE_VERSION=$REMOTE_VER" >> $GITHUB_ENV
 
           if [ "$REMOTE_VER" = "none" ]; then
@@ -69,24 +72,37 @@ jobs:
       - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
         run: |
+          # 1. 生成基于时间的直观版本号
+          RES_VERSION=$(date -d "+8 hours" +'%Y.%m%d.%H%M')
+          
           mkdir target_repo && cd target_repo
+          # 2. 指定分支初始化，解决推送冲突
           git init -b feature/auto_get_res_new
           git remote add origin https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/NiceAfternoon/arknights-mower.git
           git config core.sparseCheckout true
+          
+          # 3. 文件夹级稀疏检出，防止拦截生成的新文件
           cat <<EOF > .git/info/sparse-checkout
-          arknights_mower/data/*
-          arknights_mower/fonts/*
-          arknights_mower/models/*
-          arknights_mower/opname/*
-          ui/public/*
-          ui/src/*
+          arknights_mower/
+          ui/
           EOF
+          
           git pull --depth 1 origin feature/auto_get_res_new || true
           cp -rf ../resource/* .
+          
+          # 4. 动态注入双轨制资源版本号供前端和增量包读取
+          TARGET_FILE="arknights_mower/data/version.json"
+          if [ -f "$TARGET_FILE" ]; then
+            tmp=$(mktemp)
+            jq --arg v "$RES_VERSION" --arg lu "${{ env.REMOTE_VERSION }}" '.res_version = $v | .last_updated = $lu' "$TARGET_FILE" > "$tmp" && mv "$tmp" "$TARGET_FILE"
+          fi
+          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+          
+          # 5. 确保新增的文件都被添加
+          git add arknights_mower/ ui/
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "chore: auto sync to version ${{ env.REMOTE_VERSION }}"
+            git commit -m "chore: auto sync res v$RES_VERSION"
             git push origin feature/auto_get_res_new
           fi

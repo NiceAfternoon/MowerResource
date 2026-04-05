@@ -9,12 +9,13 @@ from pathlib import Path
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from datetime import datetime
+import re
 
-# 配置常量
-MAIN_REPO_API = "https://api.github.com/repos/ArkMowers/arknights-mower/releases/latest"
+# ================= 配置常量 =================
+MAIN_REPO_API = "https://api.github.com/repos/NiceAfternoon/arknights-mower/releases/latest"
 PATCH_DIR = Path("patch")
-DATA_VERSION_FILE = Path("resource/arknights_mower/data/version.json")
-# 定义需要监控的资源子目录
+SOURCE_RESOURCE_DIR = Path("resource")
+DATA_VERSION_FILE = SOURCE_RESOURCE_DIR / "arknights_mower/data/version.json"
 RESOURCE_SUBDIRS = ["arknights_mower", "ui"]
 
 class PatchGenerator:
@@ -22,7 +23,8 @@ class PatchGenerator:
         self.session = self._build_retry_session()
         self.latest_app_tag = self._get_latest_release_tag()
         self.target_res_version = self._get_target_res_version()
-        self.res_tag_short = self.target_res_version[:8]
+        # 将 "2026.0405.1430" 剥离小数点得到 "202604051430"
+        self.res_tag_short = self.target_res_version.replace(".", "")
         self.tmp_dir = Path(".tmp_patch_build")
         
         PATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -39,13 +41,20 @@ class PatchGenerator:
         return session
 
     def _get_latest_release_tag(self):
-        resp = self.session.get(MAIN_REPO_API, timeout=10)
-        resp.raise_for_status()
-        return resp.json().get("tag_name")
+        try:
+            resp = self.session.get(MAIN_REPO_API, timeout=10)
+            resp.raise_for_status()
+            return resp.json().get("tag_name", "v0.0.0")
+        except Exception as e:
+            print(f"获取 App Tag 失败: {e}")
+            return "v0.0.0"
 
     def _get_target_res_version(self):
+        if not DATA_VERSION_FILE.exists():
+            return "0000.0000.0000"
         with open(DATA_VERSION_FILE, "r", encoding="utf-8") as f:
-            return json.load(f).get("last_updated", "unknown_res")
+            data = json.load(f)
+            return data.get("res_version") or "0000.0000.0000"
 
     def _md5(self, filepath: Path) -> str:
         hash_md5 = hashlib.md5()
@@ -55,26 +64,24 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _get_file_tree(self, root_dir: Path) -> dict:
-        """仅扫描指定的资源子目录，并返回相对于 resource 的路径"""
         tree = {}
+        search_root = root_dir / "resource" if (root_dir / "resource").exists() else root_dir
+        
         for subdir in RESOURCE_SUBDIRS:
-            target_path = root_dir / "resource" / subdir
+            target_path = search_root / subdir
             if not target_path.exists():
                 continue
             for filepath in target_path.rglob("*"):
                 if filepath.is_file():
-                    # 统一转为相对于 resource 的路径，例如 arknights_mower/data/v.json
-                    rel_to_res = filepath.relative_to(root_dir / "resource").as_posix()
+                    rel_to_res = filepath.relative_to(search_root).as_posix()
                     tree[rel_to_res] = self._md5(filepath)
         return tree
 
     def generate_patch(self, base_tag: str):
-        tmp_zip, tmp_json = Path(), Path()
         try:
             base_dir = self._download_and_extract_base(base_tag)
             if not base_dir: return
 
-            # 获取 Base 和当前环境的树（Key 已经是剥离 resource 后的路径）
             old_tree = self._get_file_tree(base_dir)
             new_tree = self._get_file_tree(Path("."))
 
@@ -83,10 +90,12 @@ class PatchGenerator:
             removed = [f for f in old_tree if f not in new_tree]
 
             if not (added or modified or removed): 
-                print(f"版本 {base_tag} 无需更新")
+                print(f"版本 {base_tag} 无变更，跳过生成")
                 return
 
-            file_name_base = f"from-{base_tag}-to-{self.res_tag_short}-{self.latest_app_tag}"
+            base_label = base_tag.replace(".", "") if len(base_tag) >= 12 else base_tag[:8]
+            file_name_base = f"from-{base_label}-to-{self.res_tag_short}-{self.latest_app_tag}"
+            
             zip_name = f"{file_name_base}.zip"
             json_name = f"{file_name_base}.json"
             
@@ -95,8 +104,7 @@ class PatchGenerator:
 
             with zipfile.ZipFile(tmp_zip, 'w', zipfile.ZIP_DEFLATED) as z:
                 for rel_path in added + modified:
-                    # rel_path 已经是 arknights_mower/... 结构
-                    source_file = Path("resource") / rel_path
+                    source_file = SOURCE_RESOURCE_DIR / rel_path
                     z.write(source_file, rel_path)
 
             meta = {
@@ -111,39 +119,40 @@ class PatchGenerator:
                 "size": tmp_zip.stat().st_size,
                 "generated_at": datetime.utcnow().isoformat()
             }
+            
             with open(tmp_json, "w", encoding="utf-8") as f:
                 json.dump(meta, f, indent=2, ensure_ascii=False)
 
             os.replace(tmp_zip, PATCH_DIR / zip_name)
             os.replace(tmp_json, PATCH_DIR / json_name)
-            print(f"成功生成增量包: {zip_name}")
+            print(f"--- 成功生成补丁包: {zip_name} ---")
 
         except Exception as e:
-            print(f"生成补丁失败 {base_tag}: {e}")
-            if tmp_zip.exists(): tmp_zip.unlink()
+            print(f"生成补丁失败 [{base_tag}]: {e}")
 
     def _download_and_extract_base(self, tag_name: str) -> Path:
         extract_path = self.tmp_dir / tag_name
         if extract_path.exists(): return extract_path
 
-        print(f"下载基准包: {tag_name}")
-        api_url = f"https://api.github.com/repos/ArkMowers/arknights-mower/releases/tags/{tag_name}"
-        if tag_name == self.latest_app_tag:
-            api_url = MAIN_REPO_API
+        print(f"正在获取基准包资源: {tag_name}")
+        api_url = MAIN_REPO_API if tag_name == self.latest_app_tag else f"https://api.github.com/repos/NiceAfternoon/arknights-mower/releases/tags/{tag_name}"
 
         resp = self.session.get(api_url, timeout=10)
-        if resp.status_code != 200: return None
+        if resp.status_code != 200: 
+            print(f"无法找到基准版本 {tag_name} 的 Release")
+            return None
         
         assets = resp.json().get("assets", [])
         dl_url, ext = None, ""
         for asset in assets:
             name = asset["name"]
-            if tag_name in name and (name.endswith(".zip") or name.endswith(".rar")):
+            if (tag_name in name or "mower" in name.lower()) and (name.endswith(".zip") or name.endswith(".rar")):
                 dl_url = asset["browser_download_url"]
                 ext = Path(name).suffix
                 break
         
         if not dl_url: return None
+        
         archive_path = self.tmp_dir / f"{tag_name}{ext}"
         with self.session.get(dl_url, stream=True) as r, open(archive_path, "wb") as f:
             shutil.copyfileobj(r.raw, f)
@@ -159,6 +168,7 @@ class PatchGenerator:
     def _cleanup_old_patches(self):
         for item in PATCH_DIR.glob("from-*-to-*.zip"):
             if (self.latest_app_tag not in item.name) or (self.res_tag_short not in item.name):
+                print(f"清理过期补丁: {item.name}")
                 item.unlink()
                 json_file = item.with_suffix('.json')
                 if json_file.exists(): json_file.unlink()
@@ -174,6 +184,7 @@ class PatchGenerator:
             except: pass
 
         self._cleanup_old_patches()
+
         base_versions = {self.latest_app_tag}
         for tag in old_res_tags:
             if tag and tag != self.res_tag_short:
@@ -182,7 +193,8 @@ class PatchGenerator:
         for base in base_versions:
             self.generate_patch(base)
 
-        shutil.rmtree(self.tmp_dir, ignore_errors=True)
+        if self.tmp_dir.exists():
+            shutil.rmtree(self.tmp_dir, ignore_errors=True)
 
 if __name__ == "__main__":
     PatchGenerator().run()

@@ -8,3 +8,8 @@
 
 目前还在使用 Fork 仓库测试中
 
+部分资源需要在本地环境生成
+
+```bash
+python generator/auto_get_res_new.py --local-only
+```
