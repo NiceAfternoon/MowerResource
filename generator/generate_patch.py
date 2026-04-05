@@ -22,7 +22,6 @@ class PatchGenerator:
         self.session = self._build_retry_session()
         self.latest_app_tag = self._get_latest_release_tag()
         self.target_res_version = self._get_target_res_version()
-        # 将 "2026.0405.1430" 剥离小数点得到 "202604051430"
         self.res_tag_short = self.target_res_version.replace(".", "")
         self.tmp_dir = Path(".tmp_patch_build")
         
@@ -64,10 +63,11 @@ class PatchGenerator:
 
     def _get_file_tree(self, root_dir: Path) -> dict:
         """
-        简化逻辑：只处理两种情况
-        1) 本地资源仓库：root_dir 下存在 resource/ -> 使用 resource/ 作为 search_root
-        2) Release 解压目录：直接定位到 extract_path/_internal 并在其下查找 arknights_mower 和 ui
-        返回 dict: { "arknights_mower/xxx": "md5", ... }
+        只返回资源子目录下的文件树（相对路径以资源根为基准）。
+        两种情况：
+          - 开发仓库：root_dir 下存在 resource/ -> 使用 resource/ 作为 search_root
+          - Release 解压：定位到 root_dir/_internal 或 root_dir/*/_internal，然后只扫描 _internal/arknights_mower 与 _internal/ui
+        返回: { "arknights_mower/xxx": md5, "ui/yyy": md5, ... }
         """
         tree = {}
 
@@ -75,12 +75,11 @@ class PatchGenerator:
         if (root_dir / "resource").exists():
             search_root = root_dir / "resource"
         else:
-            # 情况 2：Release 解压目录，优先直接使用 root_dir/_internal
-            # 如果 root_dir/_internal 不存在，检查是否外面套了一层（例如 GitHub zip 会多一层）
+            # 情况 2：Release 解压目录
             if (root_dir / "_internal").exists():
                 search_root = root_dir / "_internal"
             else:
-                # 查找第一层子目录里是否存在 _internal
+                # 检查是否外面套了一层（例如 GitHub zip 会多一层）
                 found = None
                 for sub in root_dir.iterdir():
                     if sub.is_dir() and (sub / "_internal").exists():
@@ -89,7 +88,7 @@ class PatchGenerator:
                 if found:
                     search_root = found
                 else:
-                    # 没找到资源根，直接返回空树
+                    # 没找到 _internal，返回空树
                     return {}
 
         # 只扫描我们关心的两个子目录，忽略其他依赖文件
@@ -99,8 +98,11 @@ class PatchGenerator:
                 continue
             for filepath in target_path.rglob("*"):
                 if filepath.is_file():
+                    # 相对路径以 search_root 为基准
                     rel_to_res = filepath.relative_to(search_root).as_posix()
-                    tree[rel_to_res] = self._md5(filepath)
+                    # 仅记录以子目录开头的路径（防止误包含）
+                    if rel_to_res.startswith(f"{subdir}/"):
+                        tree[rel_to_res] = self._md5(filepath)
         return tree
 
     def generate_patch(self, base_tag: str):
@@ -113,6 +115,7 @@ class PatchGenerator:
             old_tree = self._get_file_tree(base_dir)
             new_tree = self._get_file_tree(Path("."))
 
+            # 只比较资源子目录下的文件（old_tree/new_tree 已保证）
             added = [f for f in new_tree if f not in old_tree]
             modified = [f for f in new_tree if f in old_tree and new_tree[f] != old_tree[f]]
             removed = [f for f in old_tree if f not in new_tree]
@@ -130,18 +133,36 @@ class PatchGenerator:
             tmp_zip = PATCH_DIR / f"{zip_name}.tmp"
             tmp_json = PATCH_DIR / f"{json_name}.tmp"
 
-            # 打包新增与修改的文件，路径基于 SOURCE_RESOURCE_DIR
+            # 打包新增与修改的文件，路径基于 SOURCE_RESOURCE_DIR（优先）或当前目录（兼容）
             with zipfile.ZipFile(tmp_zip, 'w', zipfile.ZIP_DEFLATED) as z:
                 for rel_path in added + modified:
+                    # 额外防护：只处理以资源子目录开头的路径
+                    if not any(rel_path.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
+                        print(f"跳过非资源路径: {rel_path}")
+                        continue
+
                     source_file = SOURCE_RESOURCE_DIR / rel_path
                     if not source_file.exists():
-                        # 如果本地资源路径不在 resource/ 下，尝试从当前目录查找（兼容不同工作目录）
+                        # 兼容：尝试从当前工作目录查找
                         alt_source = Path(".") / rel_path
                         if alt_source.exists():
                             source_file = alt_source
                         else:
                             print(f"警告: 源文件不存在，跳过 {rel_path}")
                             continue
+
+                    # 最终再次确认文件确实位于资源子目录下（防止误打包）
+                    try:
+                        rel_check = source_file.relative_to(SOURCE_RESOURCE_DIR).as_posix()
+                        if not any(rel_check.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
+                            # 如果相对路径不在 resource/ 下，允许但仍需以资源前缀为准
+                            if not any(rel_path.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
+                                print(f"警告: 源文件不在资源目录，跳过 {source_file}")
+                                continue
+                    except Exception:
+                        # source_file 可能不是在 SOURCE_RESOURCE_DIR 下，已通过 alt_source 处理
+                        pass
+
                     z.write(source_file, rel_path)
 
             meta = {
@@ -205,10 +226,6 @@ class PatchGenerator:
                 rf.extractall(extract_path)
 
         archive_path.unlink()
-
-        # 可选：打印解压后的顶层结构，便于调试（运行时可注释）
-        # print("解压后顶层目录：", [p.name for p in extract_path.iterdir()])
-
         return extract_path
 
     def _cleanup_old_patches(self):
