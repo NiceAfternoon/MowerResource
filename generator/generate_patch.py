@@ -64,7 +64,7 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _get_file_tree(self, root_dir: Path) -> dict:
-        
+
         tree = {}
 
         # 仓库结构
@@ -180,6 +180,11 @@ class PatchGenerator:
         else:
             with rarfile.RarFile(archive_path) as rf: rf.extractall(extract_path)
         
+        print("=== 解压后的目录结构 ===")
+        for p in extract_path.rglob("*"):
+            print(p)
+        print("=======================")
+
         archive_path.unlink()
         return extract_path
 
