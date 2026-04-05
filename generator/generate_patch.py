@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-generate_patch.py
+generate_patch.py (修复版)
 
-功能：
-- 生成资源增量补丁（只比较并打包资源目录：arknights_mower 与 ui）
-- 兼容两种基准包结构：
-  1) 本地资源仓库：resource/ 下包含 arknights_mower/ 和 ui/
-  2) Release 解压包：extract_path/_internal 或 extract_path/<one-layer>/_internal 下包含 arknights_mower/ 和 ui/
-- 更健壮地定位本地 version.json（尝试多种常见路径）
-- 打包时严格只包含资源子目录下的文件，避免把依赖或其它文件误当作资源
-- 运行时会在项目根生成 patch_run.log（便于 CI 下载查看）
+只比较真正的资源目录，避免把源码/依赖当作资源导致误报。
+无需改 workflow、无需额外参数，直接替换并运行即可。
 """
 
 import os
@@ -36,7 +30,14 @@ POSSIBLE_VERSION_PATHS = [
     Path("arknights_mower") / "data" / "version.json",
     SOURCE_RESOURCE_DIR / "version.json",
 ]
-RESOURCE_SUBDIRS = ["arknights_mower", "ui"]
+# 只把这些资源子路径作为“资源”
+RESOURCE_ROOT_SUBPATHS = [
+    "arknights_mower/data",
+    "arknights_mower/fonts",
+    "arknights_mower/models",
+    "arknights_mower/opname",
+    "ui"
+]
 
 LOG_FILE = Path("patch_run.log")
 
@@ -48,7 +49,6 @@ def safe_mkdir(p: Path):
         pass
 
 def append_log(*args, **kwargs):
-    """打印到 stdout 并追加到日志文件（尽量不抛异常）"""
     print(*args, **kwargs)
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
@@ -63,6 +63,13 @@ def md5_of_file(filepath: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+def is_under_resource_subpath(rel_path: str) -> bool:
+    """判断相对路径是否属于我们关心的资源子路径"""
+    for sub in RESOURCE_ROOT_SUBPATHS:
+        if rel_path == sub or rel_path.startswith(sub + "/"):
+            return True
+    return False
+
 # ================ 主类 ================
 class PatchGenerator:
     def __init__(self):
@@ -73,7 +80,6 @@ class PatchGenerator:
         self.session = self._build_retry_session()
         self.latest_app_tag = self._get_latest_release_tag()
         self.target_res_version = self._get_target_res_version()
-        # 将 "2026.0405.1430" 剥离小数点得到 "202604051430"
         self.res_tag_short = self.target_res_version.replace(".", "")
         append_log(f"DEBUG: latest_app_tag={self.latest_app_tag}, target_res_version={self.target_res_version}")
 
@@ -98,7 +104,6 @@ class PatchGenerator:
             return "v0.0.0"
 
     def _get_target_res_version(self):
-        # 尝试多种可能的 version.json 路径
         for p in POSSIBLE_VERSION_PATHS:
             try:
                 if p.exists():
@@ -115,25 +120,23 @@ class PatchGenerator:
 
     def _get_file_tree(self, root_dir: Path) -> dict:
         """
-        只返回资源子目录下的文件树（相对路径以资源根为基准）。
-        两种情况：
-          - 开发仓库：root_dir 下存在 resource/ -> 使用 resource/ 作为 search_root
-          - Release 解压：定位到 root_dir/_internal 或 root_dir/*/_internal，然后只扫描 _internal/arknights_mower 与 _internal/ui
-        返回: { "arknights_mower/xxx": md5, "ui/yyy": md5, ... }
+        只返回资源子路径下的文件树（相对路径以 search_root 为基准）。
+        search_root:
+          - 如果 root_dir 下有 resource/ -> 使用 root_dir/resource 作为 search_root（开发仓库）
+          - 否则尝试 root_dir/_internal 或 root_dir/*/_internal（Release 解压）
+        只记录属于 RESOURCE_ROOT_SUBPATHS 的文件。
         """
         tree = {}
 
-        # 情况 1：开发仓库资源
+        # 选择 search_root
         if (root_dir / "resource").exists():
             search_root = root_dir / "resource"
             append_log(f"DEBUG: 使用本地资源仓库 search_root={search_root}")
         else:
-            # 情况 2：Release 解压目录
             if (root_dir / "_internal").exists():
                 search_root = root_dir / "_internal"
                 append_log(f"DEBUG: 直接找到 _internal: {search_root}")
             else:
-                # 检查是否外面套了一层（例如 GitHub zip 会多一层）
                 found = None
                 for sub in root_dir.iterdir():
                     if sub.is_dir() and (sub / "_internal").exists():
@@ -146,21 +149,20 @@ class PatchGenerator:
                     append_log(f"DEBUG: 未找到 _internal 或 resource 在 {root_dir}")
                     return {}
 
-        # 只扫描我们关心的两个子目录，忽略其他依赖文件
-        for subdir in RESOURCE_SUBDIRS:
-            target_path = search_root / subdir
-            if not target_path.exists():
-                append_log(f"DEBUG: 资源子目录不存在: {target_path}")
+        # 遍历 search_root，记录仅属于资源子路径的文件
+        for p in search_root.rglob("*"):
+            if not p.is_file():
                 continue
-            for filepath in target_path.rglob("*"):
-                if filepath.is_file():
-                    rel_to_res = filepath.relative_to(search_root).as_posix()
-                    # 仅记录以子目录开头的路径（防止误包含）
-                    if rel_to_res.startswith(f"{subdir}/"):
-                        try:
-                            tree[rel_to_res] = md5_of_file(filepath)
-                        except Exception as e:
-                            append_log(f"警告: 计算 MD5 失败 {filepath}: {e}")
+            try:
+                rel = p.relative_to(search_root).as_posix()
+            except Exception:
+                continue
+            # 只记录属于 RESOURCE_ROOT_SUBPATHS 的文件
+            if is_under_resource_subpath(rel):
+                try:
+                    tree[rel] = md5_of_file(p)
+                except Exception as e:
+                    append_log(f"警告: 计算 MD5 失败 {p}: {e}")
         return tree
 
     def generate_patch(self, base_tag: str):
@@ -173,25 +175,9 @@ class PatchGenerator:
             old_tree = self._get_file_tree(base_dir)
             new_tree = self._get_file_tree(Path("."))
 
-            # debug 输出样例
             append_log(f"DEBUG: OLD_TREE count={len(old_tree)} NEW_TREE count={len(new_tree)}")
-            if len(old_tree) <= 50:
-                for k in sorted(old_tree.keys()):
-                    append_log("OLD:", k)
-            else:
-                for k in sorted(list(old_tree.keys())[:50]):
-                    append_log("OLD sample:", k)
-                append_log("OLD: ... (truncated)")
 
-            if len(new_tree) <= 50:
-                for k in sorted(new_tree.keys()):
-                    append_log("NEW:", k)
-            else:
-                for k in sorted(list(new_tree.keys())[:50]):
-                    append_log("NEW sample:", k)
-                append_log("NEW: ... (truncated)")
-
-            # 只比较资源子目录下的文件（old_tree/new_tree 已保证）
+            # 只比较资源子路径下的文件（old_tree/new_tree 已保证）
             added = [f for f in new_tree if f not in old_tree]
             modified = [f for f in new_tree if f in old_tree and new_tree[f] != old_tree[f]]
             removed = [f for f in old_tree if f not in new_tree]
@@ -211,8 +197,8 @@ class PatchGenerator:
             # 打包新增与修改的文件，路径基于 SOURCE_RESOURCE_DIR（优先）或当前目录（兼容）
             with zipfile.ZipFile(tmp_zip, 'w', zipfile.ZIP_DEFLATED) as z:
                 for rel_path in added + modified:
-                    # 额外防护：只处理以资源子目录开头的路径
-                    if not any(rel_path.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
+                    # 额外防护：只处理属于资源子路径的 rel_path
+                    if not is_under_resource_subpath(rel_path):
                         append_log(f"跳过非资源路径: {rel_path}")
                         continue
 
@@ -224,18 +210,6 @@ class PatchGenerator:
                         else:
                             append_log(f"警告: 源文件不存在，跳过 {rel_path}")
                             continue
-
-                    # 最终再次确认文件确实位于资源子目录下（防止误打包）
-                    try:
-                        rel_check = source_file.relative_to(SOURCE_RESOURCE_DIR).as_posix()
-                        if not any(rel_check.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
-                            # 如果相对路径不在 resource/ 下，允许但仍需以资源前缀为准
-                            if not any(rel_path.startswith(f"{sd}/") for sd in RESOURCE_SUBDIRS):
-                                append_log(f"警告: 源文件不在资源目录，跳过 {source_file}")
-                                continue
-                    except Exception:
-                        # source_file 可能不是在 SOURCE_RESOURCE_DIR 下，已通过 alt_source 处理
-                        pass
 
                     try:
                         z.write(source_file, rel_path)
@@ -372,7 +346,6 @@ class PatchGenerator:
         for base in base_versions:
             self.generate_patch(base)
 
-        # 清理临时目录
         try:
             if self.tmp_dir.exists():
                 shutil.rmtree(self.tmp_dir, ignore_errors=True)
@@ -381,7 +354,6 @@ class PatchGenerator:
 
 # ================ 脚本入口 ================
 if __name__ == "__main__":
-    # 清理旧日志（保留历史也可注释）
     try:
         if LOG_FILE.exists():
             LOG_FILE.unlink()
