@@ -58,7 +58,7 @@ jobs:
           git sparse-checkout set gamedata/excel/ item/ avatar/ building/
           cd ..
           echo "${{ env.REMOTE_VERSION }}" > version
-          pip install opencv-python-headless numpy Pillow scikit-image scikit-learn
+          pip install opencv-python-headless "numpy<2.0" Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
 
       - name: Commit to Current Repo
