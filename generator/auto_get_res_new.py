@@ -678,6 +678,8 @@ class Arknights数据处理器:
         version_path = os.path.join(RESOURCE_ROOT, "arknights_mower/data/version.json")
         version_info = {"activity": {"name": "未知", "time": 0, "endTime": 0}, 
                         "gacha": {"name": "未知", "time": 0, "endTime": 0},
+                        "last_updated": "",
+                        "res_version": "",
                         "files": {}}
         
         if os.path.exists(version_path):
