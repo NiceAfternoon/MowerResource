@@ -64,18 +64,26 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _get_file_tree(self, root_dir: Path) -> dict:
+        
         tree = {}
-        # 优先使用 resource/（资源仓库）
+
+        # 仓库结构
         if (root_dir / "resource").exists():
             search_root = root_dir / "resource"
 
-        # 其次使用 _internal/（PyInstaller 打包后的Realease Zip）
-        elif (root_dir / "_internal").exists():
-            search_root = root_dir / "_internal"
-
-        # 最后使用根目录（Release zip）
         else:
+            # Release 结构：需要找到包含 _internal/ 的目录
             search_root = root_dir
+
+        # 如果根目录没有 _internal/，检查是否外面套了一层
+        if not (search_root / "_internal").exists():
+            for sub in search_root.iterdir():
+                if sub.is_dir() and (sub / "_internal").exists():
+                    search_root = sub
+                    break
+
+        # 最终资源根目录 = search_root/_internal
+        search_root = search_root / "_internal"
 
         for subdir in RESOURCE_SUBDIRS:
             target_path = search_root / subdir

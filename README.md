@@ -8,7 +8,17 @@
 
 目前还在使用 Fork 仓库测试中
 
-部分资源需要在本地环境生成
+---
+
+部分资源需要在本地环境生成：
+
+在 Actions 自动同步上游资源后，先拉取至本地：
+
+```bash
+git pull
+```
+
+再执行资源生成脚本：
 
 ```bash
 python generator/auto_get_res_new.py --local-only
