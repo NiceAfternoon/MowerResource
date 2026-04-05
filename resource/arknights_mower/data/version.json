@@ -12,19 +12,6 @@
     "last_updated": "26-03-31-05-42-28_7d7f6",
     "res_version": "",
     "files": {
-<<<<<<< HEAD
-        "arknights_mower/data/agent.json": "4833ae9c055ee7cfb2976608d163d639",
-        "arknights_mower/data/agent_profession.json": "d53b5e50058b0f392305abf6e567d12b",
-        "arknights_mower/data/key_mapping.json": "c4f25b8235d5fb92ce6827ef488fdf7d",
-        "arknights_mower/data/recruit.json": "62adc6e8e8b777e2ec84ebb5390c2d3c",
-        "arknights_mower/data/recruit_result.json": "e8e0fd82069495d3a90988ef125a0a9a",
-        "arknights_mower/data/stage_data_full.json": "00f1e219192b4f4be8f77fbd9d39f2c8",
-        "arknights_mower/data/stage_order.json": "21e13fe94530d8f699deb5706ad14b5e",
-        "arknights_mower/data/version.json": "72d622a5caf0ee7c1de972cb31476bb5",
-        "arknights_mower/data/workshop_formula.json": "e4007d8be070d0a5941810986c69dfcc",
-        "arknights_mower/fonts/FZDYSK.TTF": "e3f589e54228f3ad5afe1e085080bbf6",
-        "arknights_mower/fonts/README.md": "c62c8dc1eafcc6238275469cd5ae43a3",
-=======
         "arknights_mower/data/stage_data_full.json": "69808957d3a8ed9e0562cd3ff110308e",
         "arknights_mower/data/version.json": "6943f2b9a182f15b9bc89f08100c5358",
         "arknights_mower/data/agent_profession.json": "d53b5e50058b0f392305abf6e567d12b",
@@ -43,7 +30,6 @@
         "arknights_mower/models/operator_train.model": "9bd5703827cfb960abc242fe3fb2b0c9",
         "arknights_mower/models/recruit.pkl": "dde8ff834cf5b55ed0f2fbc0cbd56ca8",
         "arknights_mower/models/operator_select.model": "2083eaa958c6316d4d0eefbd25388e80",
->>>>>>> dfa3b8b59f117d08653511076af1ed1e991a6151
         "arknights_mower/fonts/SourceHanSansCN-Medium.otf": "4aa8af7246b887f39283be95d96de859",
         "arknights_mower/models/avatar.pkl": "060b7e8d85ac353bcaca416806e45997",
         "arknights_mower/models/CONSUME.pkl": "ba92e5693de1d3bf771c02180d18d3f0",
