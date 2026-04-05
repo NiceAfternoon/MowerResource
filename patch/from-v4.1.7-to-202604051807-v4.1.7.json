@@ -1,0 +1,15 @@
+{
+  "base_version": "v4.1.7",
+  "target_resource_full": "2026.0405.1807",
+  "target_resource_short": "202604051807",
+  "software_tag": "v4.1.7",
+  "files_added": [],
+  "files_modified": [
+    "arknights_mower/data/version.json",
+    "arknights_mower/models/recruit.pkl"
+  ],
+  "files_removed": [],
+  "md5": "8b9397a7898e62084bec542a1d3fea08",
+  "size": 74144,
+  "generated_at": "2026-04-05T13:27:55.320307"
+}
