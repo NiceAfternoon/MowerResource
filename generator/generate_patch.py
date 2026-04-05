@@ -65,8 +65,18 @@ class PatchGenerator:
 
     def _get_file_tree(self, root_dir: Path) -> dict:
         tree = {}
-        search_root = root_dir / "resource" if (root_dir / "resource").exists() else root_dir
-        
+        # 优先使用 resource/（资源仓库）
+        if (root_dir / "resource").exists():
+            search_root = root_dir / "resource"
+
+        # 其次使用 _internal/（PyInstaller 打包后的Realease Zip）
+        elif (root_dir / "_internal").exists():
+            search_root = root_dir / "_internal"
+
+        # 最后使用根目录（Release zip）
+        else:
+            search_root = root_dir
+
         for subdir in RESOURCE_SUBDIRS:
             target_path = search_root / subdir
             if not target_path.exists():
