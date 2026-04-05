@@ -9,7 +9,6 @@ from pathlib import Path
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from datetime import datetime
-import re
 
 # ================= 配置常量 =================
 MAIN_REPO_API = "https://api.github.com/repos/NiceAfternoon/arknights-mower/releases/latest"
@@ -64,27 +63,36 @@ class PatchGenerator:
         return hash_md5.hexdigest()
 
     def _get_file_tree(self, root_dir: Path) -> dict:
-
+        """
+        简化逻辑：只处理两种情况
+        1) 本地资源仓库：root_dir 下存在 resource/ -> 使用 resource/ 作为 search_root
+        2) Release 解压目录：直接定位到 extract_path/_internal 并在其下查找 arknights_mower 和 ui
+        返回 dict: { "arknights_mower/xxx": "md5", ... }
+        """
         tree = {}
 
-        # 仓库结构
+        # 情况 1：开发仓库资源
         if (root_dir / "resource").exists():
             search_root = root_dir / "resource"
-
         else:
-            # Release 结构：需要找到包含 _internal/ 的目录
-            search_root = root_dir
+            # 情况 2：Release 解压目录，优先直接使用 root_dir/_internal
+            # 如果 root_dir/_internal 不存在，检查是否外面套了一层（例如 GitHub zip 会多一层）
+            if (root_dir / "_internal").exists():
+                search_root = root_dir / "_internal"
+            else:
+                # 查找第一层子目录里是否存在 _internal
+                found = None
+                for sub in root_dir.iterdir():
+                    if sub.is_dir() and (sub / "_internal").exists():
+                        found = sub / "_internal"
+                        break
+                if found:
+                    search_root = found
+                else:
+                    # 没找到资源根，直接返回空树
+                    return {}
 
-        # 如果根目录没有 _internal/，检查是否外面套了一层
-        if not (search_root / "_internal").exists():
-            for sub in search_root.iterdir():
-                if sub.is_dir() and (sub / "_internal").exists():
-                    search_root = sub
-                    break
-
-        # 最终资源根目录 = search_root/_internal
-        search_root = search_root / "_internal"
-
+        # 只扫描我们关心的两个子目录，忽略其他依赖文件
         for subdir in RESOURCE_SUBDIRS:
             target_path = search_root / subdir
             if not target_path.exists():
@@ -98,7 +106,9 @@ class PatchGenerator:
     def generate_patch(self, base_tag: str):
         try:
             base_dir = self._download_and_extract_base(base_tag)
-            if not base_dir: return
+            if not base_dir:
+                print(f"基准包 {base_tag} 获取失败，跳过")
+                return
 
             old_tree = self._get_file_tree(base_dir)
             new_tree = self._get_file_tree(Path("."))
@@ -107,7 +117,7 @@ class PatchGenerator:
             modified = [f for f in new_tree if f in old_tree and new_tree[f] != old_tree[f]]
             removed = [f for f in old_tree if f not in new_tree]
 
-            if not (added or modified or removed): 
+            if not (added or modified or removed):
                 print(f"版本 {base_tag} 无变更，跳过生成")
                 return
 
@@ -120,9 +130,18 @@ class PatchGenerator:
             tmp_zip = PATCH_DIR / f"{zip_name}.tmp"
             tmp_json = PATCH_DIR / f"{json_name}.tmp"
 
+            # 打包新增与修改的文件，路径基于 SOURCE_RESOURCE_DIR
             with zipfile.ZipFile(tmp_zip, 'w', zipfile.ZIP_DEFLATED) as z:
                 for rel_path in added + modified:
                     source_file = SOURCE_RESOURCE_DIR / rel_path
+                    if not source_file.exists():
+                        # 如果本地资源路径不在 resource/ 下，尝试从当前目录查找（兼容不同工作目录）
+                        alt_source = Path(".") / rel_path
+                        if alt_source.exists():
+                            source_file = alt_source
+                        else:
+                            print(f"警告: 源文件不存在，跳过 {rel_path}")
+                            continue
                     z.write(source_file, rel_path)
 
             meta = {
@@ -150,13 +169,14 @@ class PatchGenerator:
 
     def _download_and_extract_base(self, tag_name: str) -> Path:
         extract_path = self.tmp_dir / tag_name
-        if extract_path.exists(): return extract_path
+        if extract_path.exists():
+            return extract_path
 
         print(f"正在获取基准包资源: {tag_name}")
         api_url = MAIN_REPO_API if tag_name == self.latest_app_tag else f"https://api.github.com/repos/NiceAfternoon/arknights-mower/releases/tags/{tag_name}"
 
         resp = self.session.get(api_url, timeout=10)
-        if resp.status_code != 200: 
+        if resp.status_code != 200:
             print(f"无法找到基准版本 {tag_name} 的 Release")
             return None
         
@@ -169,22 +189,26 @@ class PatchGenerator:
                 ext = Path(name).suffix
                 break
         
-        if not dl_url: return None
+        if not dl_url:
+            print("未找到合适的压缩包资源")
+            return None
         
         archive_path = self.tmp_dir / f"{tag_name}{ext}"
         with self.session.get(dl_url, stream=True) as r, open(archive_path, "wb") as f:
             shutil.copyfileobj(r.raw, f)
 
         if ext == ".zip":
-            with zipfile.ZipFile(archive_path, 'r') as z: z.extractall(extract_path)
+            with zipfile.ZipFile(archive_path, 'r') as z:
+                z.extractall(extract_path)
         else:
-            with rarfile.RarFile(archive_path) as rf: rf.extractall(extract_path)
-        
-        print("是否存在资源目录？")
-        print((extract_path / "_internal" / "arknights_mower").exists())
-        print((extract_path / "_internal" / "ui").exists())
+            with rarfile.RarFile(archive_path) as rf:
+                rf.extractall(extract_path)
 
         archive_path.unlink()
+
+        # 可选：打印解压后的顶层结构，便于调试（运行时可注释）
+        # print("解压后顶层目录：", [p.name for p in extract_path.iterdir()])
+
         return extract_path
 
     def _cleanup_old_patches(self):
@@ -193,17 +217,19 @@ class PatchGenerator:
                 print(f"清理过期补丁: {item.name}")
                 item.unlink()
                 json_file = item.with_suffix('.json')
-                if json_file.exists(): json_file.unlink()
+                if json_file.exists():
+                    json_file.unlink()
 
     def run(self):
         old_res_tags = set()
         for meta_file in PATCH_DIR.glob("*.json"):
             try:
-                with open(meta_file, "r") as f:
+                with open(meta_file, "r", encoding="utf-8") as f:
                     m = json.load(f)
                     if m.get("software_tag") == self.latest_app_tag:
                         old_res_tags.add(m.get("target_resource_short"))
-            except: pass
+            except Exception:
+                pass
 
         self._cleanup_old_patches()
 
