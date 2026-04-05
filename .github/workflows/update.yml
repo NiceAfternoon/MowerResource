@@ -60,6 +60,15 @@ jobs:
           echo "${{ env.REMOTE_VERSION }}" > version
           pip install opencv-python-headless "numpy<2.0" Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
+          
+          # 生成版本号并注入到 resource 目录，确保本地 commit 也能带上版本号
+          RES_VERSION=$(date -d "+8 hours" +'%Y.%m%d.%H%M')
+          echo "RES_VERSION=$RES_VERSION" >> $GITHUB_ENV
+          TARGET_FILE="resource/arknights_mower/data/version.json"
+          if [ -f "$TARGET_FILE" ]; then
+            tmp=$(mktemp)
+            jq --arg v "$RES_VERSION" --arg lu "${{ env.REMOTE_VERSION }}" '.res_version = $v | .last_updated = $lu' "$TARGET_FILE" > "$tmp" && mv "$tmp" "$TARGET_FILE"
+          fi
 
       - name: Commit to Current Repo
         if: steps.check.outputs.detected == 'true'
@@ -72,16 +81,11 @@ jobs:
       - name: Push to Main Repo
         if: steps.check.outputs.detected == 'true'
         run: |
-          # 1. 生成基于时间的直观版本号
-          RES_VERSION=$(date -d "+8 hours" +'%Y.%m%d.%H%M')
-          
           mkdir target_repo && cd target_repo
-          # 2. 指定分支初始化，解决推送冲突
           git init -b feature/auto_get_res_new
           git remote add origin https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/NiceAfternoon/arknights-mower.git
           git config core.sparseCheckout true
           
-          # 3. 文件夹级稀疏检出，防止拦截生成的新文件
           cat <<EOF > .git/info/sparse-checkout
           arknights_mower/
           ui/
@@ -90,19 +94,12 @@ jobs:
           git pull --depth 1 origin feature/auto_get_res_new || true
           cp -rf ../resource/* .
           
-          # 4. 动态注入双轨制资源版本号供前端和增量包读取
-          TARGET_FILE="arknights_mower/data/version.json"
-          if [ -f "$TARGET_FILE" ]; then
-            tmp=$(mktemp)
-            jq --arg v "$RES_VERSION" --arg lu "${{ env.REMOTE_VERSION }}" '.res_version = $v | .last_updated = $lu' "$TARGET_FILE" > "$tmp" && mv "$tmp" "$TARGET_FILE"
-          fi
-          
+          # 这里的 version.json 已经在 Sync 步骤处理过了，直接 add 即可
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 5. 确保新增的文件都被添加
           git add arknights_mower/ ui/
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "chore: auto sync res v$RES_VERSION"
+            git commit -m "chore: auto sync res v${{ env.RES_VERSION }}"
             git push origin feature/auto_get_res_new
           fi
