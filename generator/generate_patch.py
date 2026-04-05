@@ -180,10 +180,9 @@ class PatchGenerator:
         else:
             with rarfile.RarFile(archive_path) as rf: rf.extractall(extract_path)
         
-        print("=== 解压后的目录结构 ===")
-        for p in extract_path.rglob("*"):
-            print(p)
-        print("=======================")
+        print("是否存在资源目录？")
+        print((extract_path / "_internal" / "arknights_mower").exists())
+        print((extract_path / "_internal" / "ui").exists())
 
         archive_path.unlink()
         return extract_path
