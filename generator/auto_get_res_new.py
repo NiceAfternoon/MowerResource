@@ -692,24 +692,35 @@ class Arknights数据处理器:
             with open(version_upstream_path, "r", encoding="utf-8") as f:
                 version_info["last_updated"] = f.read().strip()
 
-        # 获取活动与卡池信息（替代原有的 print 输出）
-        basic_info = self.活动表.get("basicInfo", {})
-        for activity in basic_info.values():
-            a_end = activity.get("endTime")
-            if a_end >= current_time:
-                a_type = activity.get("type", "")
-                if not any(key in a_type for key in ["CHECKIN", "ONLY", "COLLECTION"]):
-                    version_info["activity"] = {"name": activity.get("name"), "time": activity.get("startTime"), "endTime": a_end}
-                    break
+        # 获取最新活动
+        activities = self.活动表.get("basicInfo", {})
+
+        if isinstance(activities, dict) and activities:
+            # 从 dict 的 values() 中找 startTime 最大的活动
+            latest = max(activities.values(), key=lambda x: x.get("startTime", 0))
+            a_type = latest.get("type", "")
+
+            if not any(key in a_type for key in ["CHECKIN", "ONLY", "COLLECTION"]):
+                version_info["activity"] = {
+                    "name": latest.get("name"),
+                    "time": latest.get("startTime"),
+                    "endTime": latest.get("endTime")
+                }
+                
         
-        gacha_Pool_Client = self.抽卡表.get("gachaPoolClient", [])
-        for gacha in gacha_Pool_Client:
-            g_end = gacha.get("endTime")
-            if g_end >= current_time:
-                g_name = gacha.get("gachaPoolName", "")
-                if "适合多种场合的强力干员" not in g_name:
-                    version_info["gacha"] = {"name": g_name, "time": gacha.get("openTime"), "endTime": g_end}
-                    break
+        # 获取最新卡池
+        gacha = self.抽卡表.get("gachaPoolClient", [])
+
+        if gacha:
+            latest = max(gacha, key=lambda x: x.get("openTime", 0))
+            g_name = latest.get("gachaPoolName", "")
+
+            if "适合多种场合的强力干员" not in g_name:
+                version_info["gacha"] = {
+                    "name": g_name,
+                    "time": latest.get("openTime"),
+                    "endTime": latest.get("endTime")
+                }
 
         version_info["files"] = self.generate_md5(RESOURCE_ROOT)
         with open(version_path, "w", encoding="utf-8") as f:
