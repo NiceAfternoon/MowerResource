@@ -59,7 +59,7 @@ jobs:
           # 2. 稀疏拉取原始资源
           git clone --depth 1 --filter=blob:none --sparse https://github.com/yuanyan3060/ArknightsGameResource.git
           cd ArknightsGameResource
-          git sparse-checkout set gamedata/excel/ item/ avatar/ building/
+          git sparse-checkout set gamedata/excel/ item/ avatar/ building_skill/
           
           # --- 改动点 1：彻底删除子仓库的 Git 标识 ---
           rm -rf .git
