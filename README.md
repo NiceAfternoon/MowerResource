@@ -10,25 +10,12 @@
 
 ---
 
-公招更新时部分资源需要在本地环境生成：
+公招数据更新时部分资源需要在本地环境生成：
 
 在游戏更新后并等待 Actions 自动同步部分上游资源后，先拉取至本地：
 
 ```bash
 git pull
-```
-
-关联上游资源仓库后配置稀疏检出：
-
-```bash
-git remote add metadata https://github.com/yuanyan3060/ArknightsGameResource.git
-git sparse-checkout init --cone
-git sparse-checkout set gamedata/excel item avatar building
-```
-
-拉取上游资源：
-```bash
-git pull metadata main --allow-unrelated-histories
 ```
 
 再执行资源生成脚本：
