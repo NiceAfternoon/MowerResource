@@ -63,6 +63,7 @@ jobs:
           
           # --- 改动点 1：彻底删除子仓库的 Git 标识 ---
           rm -rf .git
+          find . -maxdepth 1 -type f -delete
           cd ..
           
           # 3. 准备环境并生成资源
