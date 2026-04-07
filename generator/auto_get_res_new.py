@@ -706,6 +706,7 @@ class Arknights数据处理器:
                     "time": latest.get("startTime"),
                     "endTime": latest.get("endTime")
                 }
+                print(f"当前最新活动：{latest.get('name')}")
                 
         
         # 获取最新卡池
@@ -721,6 +722,7 @@ class Arknights数据处理器:
                     "time": latest.get("openTime"),
                     "endTime": latest.get("endTime")
                 }
+                print(f"当前最新卡池：{g_name}")
 
         version_info["files"] = self.generate_md5(RESOURCE_ROOT)
         with open(version_path, "w", encoding="utf-8") as f:
