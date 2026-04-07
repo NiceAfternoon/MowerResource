@@ -52,21 +52,25 @@ jobs:
       - name: Sync Upstream & Generate
         if: steps.check.outputs.detected == 'true'
         run: |
+          # 1. 清理旧的子模块残留（非常重要，否则 Git 索引会冲突）
+          git rm -r --cached ArknightsGameResource || true
           rm -rf ArknightsGameResource
-          # 1. 稀疏拉取原始资源
+          
+          # 2. 稀疏拉取原始资源
           git clone --depth 1 --filter=blob:none --sparse https://github.com/yuanyan3060/ArknightsGameResource.git
           cd ArknightsGameResource
           git sparse-checkout set gamedata/excel/ item/ avatar/ building/
-          # 修正：删除内部 .git，使其在 MowerResource 仓库中作为普通文件夹存在
+          
+          # --- 改动点 1：彻底删除子仓库的 Git 标识 ---
           rm -rf .git
           cd ..
           
-          # 2. 准备环境并生成资源
+          # 3. 准备环境并生成资源
           echo "${{ env.REMOTE_VERSION }}" > version
           pip install opencv-python-headless "numpy<2.0" Pillow scikit-image scikit-learn
           PYTHONPATH=$(pwd)/generator python generator/auto_get_res_new.py
           
-          # 3. 更新版本号信息
+          # 4. 更新版本号
           RES_VERSION=$(date -d "+8 hours" +'%Y.%m%d.%H%M')
           echo "RES_VERSION=$RES_VERSION" >> $GITHUB_ENV
           TARGET_FILE="resource/arknights_mower/data/version.json"
@@ -81,7 +85,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 强制添加原始资源文件夹、版本文件和 resource 产物
+          # --- 改动点 2：强制添加文件夹内容 ---
+          # 确保 ArknightsGameResource 被当作普通文件夹 add
           git add -f ArknightsGameResource/
           git add version resource/
           
@@ -102,7 +107,7 @@ jobs:
           
           git pull --depth 1 origin feature/auto_get_res_new || true
           
-          # 仅拷贝转换后的资源到目标仓库，不拷贝原始数据
+          # 仅拷贝转换后的资源到目标仓库
           cp -rf ../resource/* .
           
           git config user.name "github-actions[bot]"
