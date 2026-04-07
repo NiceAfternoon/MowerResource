@@ -674,13 +674,15 @@ class Arknights数据处理器:
             json.dump(配方类别, f, ensure_ascii=False, indent=4)
 
     def generate_version_info(self):
-        current_time = int(time.time())
+        # current_time = int(time.time())
         version_path = os.path.join(RESOURCE_ROOT, "arknights_mower/data/version.json")
-        version_info = {"activity": {"name": "未知", "time": 0, "endTime": 0}, 
-                        "gacha": {"name": "未知", "time": 0, "endTime": 0},
-                        "last_updated": "",
-                        "res_version": "",
-                        "files": {}}
+        version_info = {
+            "activity": {"name": "未知", "time": 0, "endTime": 0}, 
+            "gacha": {"name": "未知", "time": 0, "endTime": 0},
+            "last_updated": "",
+            "res_version": "",
+            "files": {}
+        }
         
         if os.path.exists(version_path):
             with open(version_path, "r", encoding="utf-8") as f:
@@ -693,36 +695,39 @@ class Arknights数据处理器:
                 version_info["last_updated"] = f.read().strip()
 
         # 获取最新活动
-        activities = self.活动表.get("basicInfo", {})
+        activities = [
+            a for a in self.活动表.get("basicInfo", {}).values()
+            if not any(key in a.get("type", "") for key in ["CHECKIN", "ONLY", "COLLECTION"])
+        ]
 
-        if isinstance(activities, dict) and activities:
-            # 从 dict 的 values() 中找 startTime 最大的活动
-            latest = max(activities.values(), key=lambda x: x.get("startTime", 0))
-            a_type = latest.get("type", "")
-
-            if not any(key in a_type for key in ["CHECKIN", "ONLY", "COLLECTION"]):
-                version_info["activity"] = {
-                    "name": latest.get("name"),
-                    "time": latest.get("startTime"),
-                    "endTime": latest.get("endTime")
-                }
-                print(f"当前最新活动：{latest.get('name')}")
+        if activities:
+            activities.sort(key=lambda x: x.get("startTime", 0), reverse = True)
+            
+            latest = activities[0]
+            version_info["activity"] = {
+                "name": latest.get("name"),
+                "time": latest.get("startTime"),
+                "endTime": latest.get("endTime")
+            }
+            print(f"当前最新活动：{latest.get('name')}")
                 
         
         # 获取最新卡池
-        gacha = self.抽卡表.get("gachaPoolClient", [])
+        gacha = [
+            g for g in self.抽卡表.get("gachaPoolClient", [])
+            if not any(key in g.get("gachaPoolName") for key in ["适合多种场合的强力干员"])
+        ]
 
         if gacha:
-            latest = max(gacha, key=lambda x: x.get("openTime", 0))
-            g_name = latest.get("gachaPoolName", "")
+            gacha.sort(key=lambda x: x.get("openTime", 0), reverse = True)
 
-            if "适合多种场合的强力干员" not in g_name:
-                version_info["gacha"] = {
-                    "name": g_name,
-                    "time": latest.get("openTime"),
-                    "endTime": latest.get("endTime")
-                }
-                print(f"当前最新卡池：{g_name}")
+            latest = gacha[0]
+            version_info["gacha"] = {
+                "name": latest.get("gachaPoolName"),
+                "time": latest.get("openTime"),
+                "endTime": latest.get("endTime")
+            }
+            print(f"当前最新卡池：{latest.get('gachaPoolName')}")
 
         version_info["files"] = self.generate_md5(RESOURCE_ROOT)
         with open(version_path, "w", encoding="utf-8") as f:
