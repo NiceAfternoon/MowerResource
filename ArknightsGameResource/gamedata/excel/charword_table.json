@@ -284416,6 +284416,14 @@
           ],
           "voicePath": null
         },
+        "JP": {
+          "wordkey": "char_009_12fce",
+          "voiceLangType": 1,
+          "cvName": [
+            "梯笃司"
+          ],
+          "voicePath": null
+        },
         "KR": {
           "wordkey": "char_009_12fce",
           "voiceLangType": 4,
@@ -284605,6 +284613,14 @@
           "voiceLangType": 2,
           "cvName": [
             "马洋"
+          ],
+          "voicePath": null
+        },
+        "JP": {
+          "wordkey": "char_283_midn",
+          "voiceLangType": 1,
+          "cvName": [
+            "高桥英则"
           ],
           "voicePath": null
         },
@@ -301127,12 +301143,12 @@
     "char_500_noirc": 1,
     "char_503_rang": 1,
     "char_501_durin": 1,
-    "char_009_12fce": 2,
+    "char_009_12fce": 1,
     "char_123_fang": 1,
     "char_240_wyvern": 1,
     "char_192_falco": 1,
     "char_208_melan": 1,
-    "char_283_midn": 2,
+    "char_283_midn": 1,
     "char_281_popka": 1,
     "char_209_ardign": 1,
     "char_122_beagle": 1,
