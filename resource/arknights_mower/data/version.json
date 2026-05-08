@@ -9,10 +9,10 @@
     "time": 1777590000,
     "endTime": 1778788799
   },
-  "last_updated": "26-05-01-11-20-05_2f5b74",
-  "res_version": "2026.0502.0059",
+  "last_updated": "26-05-06-13-49-26_836197",
+  "res_version": "2026.0508.1723",
   "files": {
-    "ui/src/pages/stage_data/event_data.json": "992b34055999c053a7953d7fff6dd981",
+    "ui/src/pages/stage_data/event_data.json": "98ef76e4d8ec0ca26285a8fb70e1badf",
     "ui/src/pages/basement_skill/buffer.json": "91ddf99440effa2c2eaf9134ae226dfa",
     "ui/src/pages/basement_skill/skill.json": "ea8ffce9e4609d4133979220866c2699",
     "ui/public/depot/森蚺的信物.webp": "8cfa06bc821c4020afe2233be3b309e3",
@@ -1835,11 +1835,11 @@
     "arknights_mower/models/operator_train.model": "33fe3cd13927db4d71adf6c9b8c2ebf3",
     "arknights_mower/models/recruit_result.pkl": "8063d400a3f509916854bf63299a28c3",
     "arknights_mower/models/operator_room.model": "4e7a07d6aa267a937ac2d220202d60c9",
-    "arknights_mower/models/CONSUME.pkl": "1cc993edfe330c8767999a1815a96581",
-    "arknights_mower/models/avatar.pkl": "c55a8d29ec3710af6b04952028b4ef9b",
+    "arknights_mower/models/CONSUME.pkl": "848b4e5d7b07919abe36947a0a79e719",
+    "arknights_mower/models/avatar.pkl": "7f7b08a29550197d006725160b922674",
     "arknights_mower/models/operator_select.model": "c1fe856855dca011e309fd3f0b81e8c8",
-    "arknights_mower/models/NORMAL.pkl": "32f1670cc0baa24d71570e1e8a4ff8ad",
-    "arknights_mower/models/recruit.pkl": "eed730b9f60f5ed9267b8c22b35793af",
+    "arknights_mower/models/NORMAL.pkl": "badcad13cd4695ad309cff46c537a8b1",
+    "arknights_mower/models/recruit.pkl": "426be04e4fd03d9d3b1a2d2529bf7861",
     "arknights_mower/data/recruit.json": "17865914ff073fa50af5856869295f19",
     "arknights_mower/data/stage_data.json": "fbc016b2f2c148fccf5452d3d878e8e0",
     "arknights_mower/data/stage_order.json": "7bc3b707fb6a961c2a00d82bfcfdefca",
@@ -1848,7 +1848,7 @@
     "arknights_mower/data/stage_data_full.json": "26740ebbd3d5d5104c6211acbdfb4cbd",
     "arknights_mower/data/agent_profession.json": "4851e3cfe4a241fe2cdef75aa353896d",
     "arknights_mower/data/recruit_result.json": "97f61e02b440912554af4dbab72e5a96",
-    "arknights_mower/data/version.json": "8e3f7d671af20478c69794f836187e44",
+    "arknights_mower/data/version.json": "ab96d1c9f6a22fe13e7ffa2812326a8f",
     "arknights_mower/data/key_mapping.json": "850e22e96e7510508290d1b494fd7d53"
   }
 }
