@@ -335,20 +335,6 @@
         "NORMAL",
         10205
     ],
-    "LMTGS_COIN_7301": [
-        "LMTGS_COIN_7301",
-        "LMTGS_COIN_7301",
-        "寻访数据契约",
-        "NORMAL",
-        10325
-    ],
-    "寻访数据契约": [
-        "LMTGS_COIN_7301",
-        "LMTGS_COIN_7301",
-        "寻访数据契约",
-        "NORMAL",
-        10325
-    ],
     "EPGS_COIN": [
         "EPGS_COIN",
         "EPGS_COIN",
@@ -670,20 +656,6 @@
         "十连寻访凭证",
         "NORMAL",
         40001
-    ],
-    "LIMITED_TKT_GACHA_10_7301": [
-        "LIMITED_TKT_GACHA_10_7301",
-        "LIMITED_TKT_GACHA_10_7301",
-        "封缄诺言寻访凭证",
-        "NORMAL",
-        40003
-    ],
-    "封缄诺言寻访凭证": [
-        "LIMITED_TKT_GACHA_10_7301",
-        "LIMITED_TKT_GACHA_10_7301",
-        "封缄诺言寻访凭证",
-        "NORMAL",
-        40003
     ],
     "7003": [
         "7003",
