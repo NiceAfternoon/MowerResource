@@ -216,6 +216,438 @@
     }
   },
   {
+    "id": "TD-EX-1",
+    "name": "为了泡影国的未来？",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-1 突袭",
+    "name": "为了泡影国的未来？",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 10,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-2",
+    "name": "迁徙季",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-2 突袭",
+    "name": "迁徙季",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 10,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-3",
+    "name": "完美的训练场",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-3 突袭",
+    "name": "完美的训练场",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-4",
+    "name": "保护“御轮”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-4 突袭",
+    "name": "保护“御轮”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-5",
+    "name": "新的岗哨",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-5 突袭",
+    "name": "新的岗哨",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-6",
+    "name": "新的兽潮？",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-6 突袭",
+    "name": "新的兽潮？",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-7",
+    "name": "最后的“诅咒”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 20,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-7 突袭",
+    "name": "最后的“诅咒”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 20,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-8",
+    "name": "山河一闪，雷鸣响彻",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 20,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-EX-8 突袭",
+    "name": "山河一闪，雷鸣响彻",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 20,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
+      "endTs": 1781467199
+    }
+  },
+  {
     "id": "TD-P-1",
     "name": "“百兽奔行”",
     "drop": [
@@ -239,6 +671,33 @@
     "stageType": "ACTIVITY",
     "endTs": {
       "startTs": 1780268400,
+      "endTs": 1781467199
+    }
+  },
+  {
+    "id": "TD-S-1",
+    "name": "群山震颤，百龙夜行",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act50side_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "泡影苍霆",
+    "subTitle": "踏破泡影",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1780905600,
       "endTs": 1781467199
     }
   },
