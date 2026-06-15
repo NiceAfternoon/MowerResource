@@ -1,7 +1,7 @@
 [
   {
-    "id": "TD-1",
-    "name": "硬壳下的胆小鬼",
+    "id": "CF-1",
+    "name": "森林里的麻烦家伙",
     "drop": [
       {
         "occPercent": 0,
@@ -14,21 +14,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 9,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-2",
-    "name": "还我锅来！",
+    "id": "CF-2",
+    "name": "坚硬磐石",
     "drop": [
       {
         "occPercent": 0,
@@ -41,21 +41,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 9,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-3",
-    "name": "不能掉以轻心",
+    "id": "CF-3",
+    "name": "迎头痛击",
     "drop": [
       {
         "occPercent": 0,
@@ -68,21 +68,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 9,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-4",
-    "name": "赤雪之兆",
+    "id": "CF-4",
+    "name": "破空的飞羽",
     "drop": [
       {
         "occPercent": 0,
@@ -95,21 +95,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-5",
-    "name": "只能成功，不能失败",
+    "id": "CF-5",
+    "name": "野蛮肇事者",
     "drop": [
       {
         "occPercent": 0,
@@ -122,21 +122,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-6",
-    "name": "来自过去的亡魂",
+    "id": "CF-6",
+    "name": "禁飞区",
     "drop": [
       {
         "occPercent": 0,
@@ -149,21 +149,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 21,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-7",
-    "name": "为什么全是死脑筋？",
+    "id": "CF-7",
+    "name": "锥心之刺",
     "drop": [
       {
         "occPercent": 0,
@@ -176,21 +176,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 21,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-8",
-    "name": "宿命流转，苍霆激荡",
+    "id": "CF-8",
+    "name": "奸诈者必自食恶果",
     "drop": [
       {
         "occPercent": 0,
@@ -203,21 +203,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 21,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-1",
-    "name": "为了泡影国的未来？",
+    "id": "CF-9",
+    "name": "决战！燃烧的狩魂！",
     "drop": [
       {
         "occPercent": 0,
@@ -230,21 +230,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone1",
     "apCost": 10,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-1 突袭",
-    "name": "为了泡影国的未来？",
+    "id": "CF-EX-1",
+    "name": "山地的震颤",
     "drop": [
       {
         "occPercent": 0,
@@ -257,48 +257,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
-    "apCost": 10,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
-    }
-  },
-  {
-    "id": "TD-EX-2",
-    "name": "迁徙季",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 10,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-2 突袭",
-    "name": "迁徙季",
+    "id": "CF-EX-1 突袭",
+    "name": "山地的震颤",
     "drop": [
       {
         "occPercent": 0,
@@ -311,21 +284,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 10,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-3",
-    "name": "完美的训练场",
+    "id": "CF-EX-2",
+    "name": "深林大大大暴乱",
     "drop": [
       {
         "occPercent": 0,
@@ -338,21 +311,75 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1781510400,
+      "endTs": 1782331199
+    }
+  },
+  {
+    "id": "CF-EX-2 突袭",
+    "name": "深林大大大暴乱",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act24sre_zone2",
+    "apCost": 10,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1781510400,
+      "endTs": 1782331199
+    }
+  },
+  {
+    "id": "CF-EX-3",
+    "name": "对对碰，硬邦邦",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-3 突袭",
-    "name": "完美的训练场",
+    "id": "CF-EX-3 突袭",
+    "name": "对对碰，硬邦邦",
     "drop": [
       {
         "occPercent": 0,
@@ -365,21 +392,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-4",
-    "name": "保护“御轮”",
+    "id": "CF-EX-4",
+    "name": "当心坠落",
     "drop": [
       {
         "occPercent": 0,
@@ -392,21 +419,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-4 突袭",
-    "name": "保护“御轮”",
+    "id": "CF-EX-4 突袭",
+    "name": "当心坠落",
     "drop": [
       {
         "occPercent": 0,
@@ -419,21 +446,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-5",
-    "name": "新的岗哨",
+    "id": "CF-EX-5",
+    "name": "此路不通",
     "drop": [
       {
         "occPercent": 0,
@@ -446,21 +473,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-5 突袭",
-    "name": "新的岗哨",
+    "id": "CF-EX-5 突袭",
+    "name": "此路不通",
     "drop": [
       {
         "occPercent": 0,
@@ -473,21 +500,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-6",
-    "name": "新的兽潮？",
+    "id": "CF-EX-6",
+    "name": "登高必经险途",
     "drop": [
       {
         "occPercent": 0,
@@ -500,21 +527,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-6 突袭",
-    "name": "新的兽潮？",
+    "id": "CF-EX-6 突袭",
+    "name": "登高必经险途",
     "drop": [
       {
         "occPercent": 0,
@@ -527,21 +554,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-7",
-    "name": "最后的“诅咒”",
+    "id": "CF-EX-7",
+    "name": "英雄的诞生",
     "drop": [
       {
         "occPercent": 0,
@@ -554,21 +581,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 20,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-7 突袭",
-    "name": "最后的“诅咒”",
+    "id": "CF-EX-7 突袭",
+    "name": "英雄的诞生",
     "drop": [
       {
         "occPercent": 0,
@@ -581,21 +608,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 20,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-8",
-    "name": "山河一闪，雷鸣响彻",
+    "id": "CF-EX-8",
+    "name": "炬火燎原",
     "drop": [
       {
         "occPercent": 0,
@@ -608,21 +635,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 20,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-EX-8 突袭",
-    "name": "山河一闪，雷鸣响彻",
+    "id": "CF-EX-8 突袭",
+    "name": "炬火燎原",
     "drop": [
       {
         "occPercent": 0,
@@ -635,21 +662,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
+    "zoneId": "act24sre_zone2",
     "apCost": 20,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-P-1",
-    "name": "“百兽奔行”",
+    "id": "CF-S-1",
+    "name": "终极斗技之战",
     "drop": [
       {
         "occPercent": 0,
@@ -662,21 +689,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone2",
     "apCost": 10,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
-    "id": "TD-S-1",
-    "name": "群山震颤，百龙夜行",
+    "id": "CF-TR-1",
+    "name": "来袭！天空王者！",
     "drop": [
       {
         "occPercent": 0,
@@ -689,43 +716,16 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act50side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "踏破泡影",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1780905600,
-      "endTs": 1781467199
-    }
-  },
-  {
-    "id": "TD-TR-1",
-    "name": "狩猎太棒啦！",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act50side_zone1",
+    "zoneId": "act24sre_zone1",
     "apCost": 0,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "泡影苍霆",
-    "subTitle": "竞逐苍霆",
+    "zoneNameSecond": "落叶逐火",
+    "subTitle": "苍暮山地",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1780268400,
-      "endTs": 1781467199
+      "startTs": 1781510400,
+      "endTs": 1782331199
     }
   },
   {
@@ -23226,366 +23226,6 @@
     "diffGroup": "NONE",
     "zoneNameSecond": "孤星",
     "subTitle": "紧握当下",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-ST-1",
-    "name": "噩梦",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-1",
-    "name": "森林里的麻烦家伙",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 9,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-TR-1",
-    "name": "来袭！天空王者！",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-2",
-    "name": "坚硬磐石",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 9,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-3",
-    "name": "迎头痛击",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 9,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-4",
-    "name": "破空的飞羽",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-ST-2",
-    "name": "林昏焰明",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-5",
-    "name": "野蛮肇事者",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-6",
-    "name": "禁飞区",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-7",
-    "name": "锥心之刺",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-8",
-    "name": "奸诈者必自食恶果",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-9",
-    "name": "决战！燃烧的狩魂！",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-ST-3",
-    "name": "晨曦",
-    "drop": null,
-    "zoneId": "act24side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "苍暮山地",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-1",
-    "name": "山地的震颤",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-1",
-    "name": "山地的震颤",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 10,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-2",
-    "name": "深林大大大暴乱",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-2",
-    "name": "深林大大大暴乱",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 10,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-3",
-    "name": "对对碰，硬邦邦",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-3",
-    "name": "对对碰，硬邦邦",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-4",
-    "name": "当心坠落",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-4",
-    "name": "当心坠落",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-5",
-    "name": "此路不通",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-5",
-    "name": "此路不通",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-6",
-    "name": "登高必经险途",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-6",
-    "name": "登高必经险途",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-7",
-    "name": "英雄的诞生",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 20,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-7",
-    "name": "英雄的诞生",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 20,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-8",
-    "name": "炬火燎原",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 20,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-EX-8",
-    "name": "炬火燎原",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 20,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "CF-S-1",
-    "name": "终极斗技之战",
-    "drop": null,
-    "zoneId": "act24side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "落叶逐火",
-    "subTitle": "艾露猫的委托柜台",
     "stageType": "ACTIVITY"
   },
   {
