@@ -1,5 +1,1411 @@
 [
   {
+    "id": "BD-1",
+    "name": "消耗品",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 9,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-1 突袭",
+    "name": "消耗品",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 9,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-2",
+    "name": "门后世界",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 9,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-2 突袭",
+    "name": "门后世界",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 9,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-3",
+    "name": "“嘀嗒嘀嗒”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 1,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 12,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-3 突袭",
+    "name": "“嘀嗒嘀嗒”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 12,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-4",
+    "name": "失控沙盒",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 1,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 12,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-4 突袭",
+    "name": "失控沙盒",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 12,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-5",
+    "name": "入职邀请",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-5 突袭",
+    "name": "入职邀请",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-6",
+    "name": "实验守则",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 1,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-6 突袭",
+    "name": "实验守则",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-7",
+    "name": "不断电",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 21,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-7 突袭",
+    "name": "不断电",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 21,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-8",
+    "name": "演算的终点",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 2,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 4,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 21,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-8 突袭",
+    "name": "演算的终点",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 21,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-S-1",
+    "name": "“绝不后退”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 0,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
+    "id": "BD-S-2",
+    "name": "“试启动”",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act21mini_zone1",
+    "apCost": 0,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "丛林症结",
+    "subTitle": "生长痛",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1783638000,
+      "endTs": 1784231999
+    }
+  },
+  {
     "id": "0-1",
     "name": "坍塌",
     "drop": null,
