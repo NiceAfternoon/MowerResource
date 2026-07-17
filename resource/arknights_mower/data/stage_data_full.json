@@ -1,7 +1,7 @@
 [
   {
-    "id": "BD-1",
-    "name": "消耗品",
+    "id": "AD-1",
+    "name": "彩排日",
     "drop": [
       {
         "occPercent": 0,
@@ -94,58 +94,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone1",
     "apCost": 9,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-1 突袭",
-    "name": "消耗品",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 9,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-2",
-    "name": "门后世界",
+    "id": "AD-2",
+    "name": "排演一出悲剧",
     "drop": [
       {
         "occPercent": 0,
@@ -238,58 +201,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone1",
     "apCost": 9,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-2 突袭",
-    "name": "门后世界",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 9,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-3",
-    "name": "“嘀嗒嘀嗒”",
+    "id": "AD-3",
+    "name": "戏剧性",
     "drop": [
       {
         "occPercent": 0,
@@ -312,7 +238,7 @@
         "dropType": 0
       },
       {
-        "occPercent": 2,
+        "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -323,46 +249,6 @@
       },
       {
         "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 2,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 1,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -382,21 +268,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone1",
     "apCost": 12,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-3 突袭",
-    "name": "“嘀嗒嘀嗒”",
+    "id": "AD-4",
+    "name": "一个荒唐的早晨",
     "drop": [
       {
         "occPercent": 0,
@@ -417,23 +303,53 @@
         "type": 0,
         "id": null,
         "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 3,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone1",
     "apCost": 12,
-    "difficulty": "FOUR_STAR",
+    "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-4",
-    "name": "失控沙盒",
+    "id": "AD-5",
+    "name": "终将重逢",
     "drop": [
       {
         "occPercent": 0,
@@ -466,7 +382,7 @@
         "dropType": 0
       },
       {
-        "occPercent": 3,
+        "occPercent": 2,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -476,7 +392,34 @@
         "dropType": 0
       },
       {
-        "occPercent": 3,
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone1",
+    "apCost": 12,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-6",
+    "name": "倒带独白",
+    "drop": [
+      {
+        "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -486,7 +429,7 @@
         "dropType": 0
       },
       {
-        "occPercent": 3,
+        "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -506,16 +449,6 @@
         "dropType": 0
       },
       {
-        "occPercent": 1,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
         "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
@@ -526,222 +459,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 12,
+    "zoneId": "act43sre_zone1",
+    "apCost": 21,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-4 突袭",
-    "name": "失控沙盒",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 12,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-5",
-    "name": "入职邀请",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-5 突袭",
-    "name": "入职邀请",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-6",
-    "name": "实验守则",
+    "id": "AD-7",
+    "name": "“血钻”的歌声",
     "drop": [
       {
         "occPercent": 0,
@@ -774,7 +506,34 @@
         "dropType": 0
       },
       {
-        "occPercent": 4,
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone1",
+    "apCost": 21,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-8",
+    "name": "登台致礼",
+    "drop": [
+      {
+        "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -784,7 +543,7 @@
         "dropType": 0
       },
       {
-        "occPercent": 4,
+        "occPercent": 0,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -794,57 +553,7 @@
         "dropType": 0
       },
       {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
+        "occPercent": 1,
         "GetPercent": 0.0,
         "CannotGetPercent": 0.0,
         "Expectation": 0.0,
@@ -864,32 +573,187 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone1",
+    "apCost": 21,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-1",
+    "name": "灰尘道具间",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-1 突袭",
+    "name": "灰尘道具间",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 10,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-2",
+    "name": "演员化妆间",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 10,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-2 突袭",
+    "name": "演员化妆间",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 10,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-3",
+    "name": "摄影棚场区",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
     "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-6 突袭",
-    "name": "实验守则",
+    "id": "AD-EX-3 突袭",
+    "name": "摄影棚场区",
     "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
       {
         "occPercent": 0,
         "GetPercent": 0.0,
@@ -901,21 +765,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone2",
     "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-7",
-    "name": "不断电",
+    "id": "AD-EX-4",
+    "name": "外景拍摄区",
     "drop": [
       {
         "occPercent": 0,
@@ -936,164 +800,24 @@
         "type": 0,
         "id": null,
         "dropType": 0
-      },
-      {
-        "occPercent": 2,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 21,
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-7 突袭",
-    "name": "不断电",
+    "id": "AD-EX-4 突袭",
+    "name": "外景拍摄区",
     "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
       {
         "occPercent": 0,
         "GetPercent": 0.0,
@@ -1105,21 +829,21 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 21,
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-8",
-    "name": "演算的终点",
+    "id": "AD-EX-5",
+    "name": "电影放映房",
     "drop": [
       {
         "occPercent": 0,
@@ -1140,194 +864,24 @@
         "type": 0,
         "id": null,
         "dropType": 0
-      },
-      {
-        "occPercent": 2,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 3,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 4,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 21,
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-8 突袭",
-    "name": "演算的终点",
+    "id": "AD-EX-5 突袭",
+    "name": "电影放映房",
     "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      },
       {
         "occPercent": 0,
         "GetPercent": 0.0,
@@ -1339,21 +893,58 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 21,
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
     "difficulty": "FOUR_STAR",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
-    "id": "BD-S-1",
-    "name": "“绝不后退”",
+    "id": "AD-EX-6",
+    "name": "自助移动酒吧",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-6 突袭",
+    "name": "自助移动酒吧",
     "drop": [
       {
         "occPercent": 0,
@@ -1366,43 +957,171 @@
         "dropType": 0
       }
     ],
-    "zoneId": "act21mini_zone1",
+    "zoneId": "act43sre_zone2",
+    "apCost": 15,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-7",
+    "name": "群演集合区",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 20,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-7 突袭",
+    "name": "群演集合区",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 20,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-8",
+    "name": "舞台与无尽的阶梯",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      },
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 20,
+    "difficulty": "NORMAL",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-EX-8 突袭",
+    "name": "舞台与无尽的阶梯",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone2",
+    "apCost": 20,
+    "difficulty": "FOUR_STAR",
+    "diffGroup": "NONE",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "为戏剧，为永恒",
+    "stageType": "ACTIVITY",
+    "endTs": {
+      "startTs": 1784491200,
+      "endTs": 1785355199
+    }
+  },
+  {
+    "id": "AD-TR-1",
+    "name": "幕间曲",
+    "drop": [
+      {
+        "occPercent": 0,
+        "GetPercent": 0.0,
+        "CannotGetPercent": 0.0,
+        "Expectation": 0.0,
+        "SumOfCountWeight": 0.0,
+        "type": 0,
+        "id": null,
+        "dropType": 0
+      }
+    ],
+    "zoneId": "act43sre_zone1",
     "apCost": 0,
     "difficulty": "NORMAL",
     "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
+    "zoneNameSecond": "红丝绒",
+    "subTitle": "演出开始",
     "stageType": "ACTIVITY",
     "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
-    }
-  },
-  {
-    "id": "BD-S-2",
-    "name": "“试启动”",
-    "drop": [
-      {
-        "occPercent": 0,
-        "GetPercent": 0.0,
-        "CannotGetPercent": 0.0,
-        "Expectation": 0.0,
-        "SumOfCountWeight": 0.0,
-        "type": 0,
-        "id": null,
-        "dropType": 0
-      }
-    ],
-    "zoneId": "act21mini_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "丛林症结",
-    "subTitle": "生长痛",
-    "stageType": "ACTIVITY",
-    "endTs": {
-      "startTs": 1783638000,
-      "endTs": 1784231999
+      "startTs": 1784491200,
+      "endTs": 1785355199
     }
   },
   {
@@ -13453,342 +13172,6 @@
     "diffGroup": "NONE",
     "zoneNameSecond": "引航者试炼",
     "subTitle": "强敌当前",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-ST-1",
-    "name": "唆使一场死亡",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-TR-1",
-    "name": "幕间曲",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-1",
-    "name": "彩排日",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 9,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-2",
-    "name": "排演一出悲剧",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 9,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-3",
-    "name": "戏剧性",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 12,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-4",
-    "name": "一个荒唐的早晨",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 12,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-ST-2",
-    "name": "焦点",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-5",
-    "name": "终将重逢",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 12,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-6",
-    "name": "倒带独白",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-7",
-    "name": "“血钻”的歌声",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-8",
-    "name": "登台致礼",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 21,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-ST-3",
-    "name": "致观众",
-    "drop": null,
-    "zoneId": "act43side_zone1",
-    "apCost": 0,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "演出开始",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-1",
-    "name": "灰尘道具间",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-1",
-    "name": "灰尘道具间",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 10,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-2",
-    "name": "演员化妆间",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 10,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-2",
-    "name": "演员化妆间",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 10,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-3",
-    "name": "摄影棚场区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-3",
-    "name": "摄影棚场区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-4",
-    "name": "外景拍摄区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-4",
-    "name": "外景拍摄区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-5",
-    "name": "电影放映房",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-5",
-    "name": "电影放映房",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-6",
-    "name": "自助移动酒吧",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-6",
-    "name": "自助移动酒吧",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 15,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-7",
-    "name": "群演集合区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 20,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-7",
-    "name": "群演集合区",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 20,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-8",
-    "name": "舞台与无尽的阶梯",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 20,
-    "difficulty": "NORMAL",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
-    "stageType": "ACTIVITY"
-  },
-  {
-    "id": "AD-EX-8",
-    "name": "舞台与无尽的阶梯",
-    "drop": null,
-    "zoneId": "act43side_zone2",
-    "apCost": 20,
-    "difficulty": "FOUR_STAR",
-    "diffGroup": "NONE",
-    "zoneNameSecond": "红丝绒",
-    "subTitle": "为戏剧，为永恒",
     "stageType": "ACTIVITY"
   },
   {
