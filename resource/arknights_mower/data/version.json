@@ -9,8 +9,8 @@
     "time": 1784534400,
     "endTime": 1785700799
   },
-  "last_updated": "26-07-16-07-20-24_daf69e",
-  "res_version": "2026.0717.1848",
+  "last_updated": "26-07-20-09-52-12_5d4a43",
+  "res_version": "2026.0720.2351",
   "files": {
     "ui/src/pages/basement_skill/buffer.json": "92d807395920f60085b6bc6ee7783651",
     "ui/src/pages/basement_skill/skill.json": "05ece4ce836ee1d5171e7b624478eee9",
@@ -1849,7 +1849,7 @@
     "ui/public/avatar/斥罪.webp": "a7d8e01d56c40dbfd538d50a026ac556",
     "ui/public/avatar/梅.webp": "ca214a6073b8f16ae95350c3879ca0dc",
     "ui/public/avatar/莱欧斯.webp": "177afafbacd799da430d1b67d6b5e953",
-    "arknights_mower/models/recruit.pkl": "93af527c61ff77a7dbb478b0add4c135",
+    "arknights_mower/models/recruit.pkl": "4b6c466790fc9f01c7c5d9c077040b62",
     "arknights_mower/models/NORMAL.pkl": "eef58d46957ff104f2425cb5b0e733a7",
     "arknights_mower/models/recruit_result.pkl": "8063d400a3f509916854bf63299a28c3",
     "arknights_mower/models/operator_room.model": "7de0c0d5654621510f07e4827d731ab1",
@@ -1865,7 +1865,7 @@
     "arknights_mower/opname/维娜·维多利亚.png": "ea3f90adc05b7a077f9057dbae7f5d48",
     "arknights_mower/data/recruit.json": "17865914ff073fa50af5856869295f19",
     "arknights_mower/data/key_mapping.json": "14c9567b466f3321ed73eaba8566582a",
-    "arknights_mower/data/version.json": "514bd136c922be304a65c3c56f86890a",
+    "arknights_mower/data/version.json": "df61f4d8fc004e789ab0c947493ba3d3",
     "arknights_mower/data/recruit_result.json": "97f61e02b440912554af4dbab72e5a96",
     "arknights_mower/data/agent_profession.json": "f472a28d459b5d64e0e9afa9a6f35516",
     "arknights_mower/data/workshop_formula.json": "5a06829ac57c809154685c02e3337356",
