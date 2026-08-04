@@ -1,20 +1,20 @@
 {
   "activity": {
-    "name": "Rhodes Island Epic 黑色博士坠落",
-    "time": 1775016000,
-    "endTime": 1775591999
+    "name": "直到大地变成一颗酸橙",
+    "time": 1785538800,
+    "endTime": 1787342399
   },
   "gacha": {
     "name": "车辙与风的归所",
     "time": 1785538800,
     "endTime": 1786737599
   },
-  "last_updated": "26-07-30-09-02-37_bf3049",
-  "res_version": "2026.0801.0712",
+  "last_updated": "26-08-03-23-34-20_a745fc",
+  "res_version": "2026.0804.1540",
   "files": {
-    "ui/src/pages/stage_data/event_data.json": "c8dfa5e061bc5f077ebf923111de1da7",
+    "ui/src/pages/stage_data/event_data.json": "d01104853514bf74ddc2568470483cd5",
     "ui/src/pages/basement_skill/buffer.json": "c276d47104de0c92842d84b47bf85f00",
-    "ui/src/pages/basement_skill/skill.json": "05ece4ce836ee1d5171e7b624478eee9",
+    "ui/src/pages/basement_skill/skill.json": "11eb83d514722bf97c30646966a888a5",
     "ui/public/avatar/风笛.webp": "ac001d486233f3844bc96f7979031635",
     "ui/public/avatar/图耶.webp": "a6be23e1e0a2046917a0534c27539223",
     "ui/public/avatar/梅尔.webp": "7139c15ce3b9df402a9cd4e6dd7255b5",
@@ -1861,10 +1861,10 @@
     "ui/public/depot/守林人的信物.webp": "1a373279581855d7f7a43239821d7d58",
     "ui/public/depot/燃灰行动物资补给.webp": "675c55b94e4aa036868d52927b73dfd2",
     "ui/public/depot/特种皇家信物.webp": "e1dc938f33769f69f69dfb499fae1b2a",
-    "arknights_mower/models/NORMAL.pkl": "5d1d40ffb1061c37d008a442b86d5964",
-    "arknights_mower/models/CONSUME.pkl": "e04fd1cfd76c0d4eea280d224902ea14",
+    "arknights_mower/models/NORMAL.pkl": "af7cab0d48f50bfcd8d40c540b6b8315",
+    "arknights_mower/models/CONSUME.pkl": "4b8d73663ef1a75715250d32dc43b354",
     "arknights_mower/models/operator_select.model": "00db75739f3bc5a82dc02c1fd3224ef5",
-    "arknights_mower/models/recruit.pkl": "919bb6b0bcc02f5b9bdb475b3baec6c0",
+    "arknights_mower/models/recruit.pkl": "ad6685120a737ff04de15b968c9fa2b9",
     "arknights_mower/models/recruit_result.pkl": "8063d400a3f509916854bf63299a28c3",
     "arknights_mower/models/avatar.pkl": "e0c78ca2c5d7d02f14fa34875b537223",
     "arknights_mower/models/operator_train.model": "7865539d75f492f317133cc947c7e401",
@@ -1876,14 +1876,14 @@
     "arknights_mower/opname/维娜·维多利亚_train.png": "bbc43ff732c35b0c91de5d73fd827da6",
     "arknights_mower/opname/维娜·维多利亚.png": "ea3f90adc05b7a077f9057dbae7f5d48",
     "arknights_mower/data/agent.json": "dbb171ed5b90ebb974a7e1c456d44ed2",
-    "arknights_mower/data/stage_order.json": "bac819d484171e143266adf4f11951c0",
+    "arknights_mower/data/stage_order.json": "0e501cbbfddfe1bd95d28e8efb50eda5",
     "arknights_mower/data/key_mapping.json": "4085e9239329e4a5a1b4bf1a7e93a0d4",
-    "arknights_mower/data/stage_data_full.json": "5d28a263d5cab4a6a8cabf71f8c3be78",
+    "arknights_mower/data/stage_data_full.json": "ff258352ff0df64d198fef34059e89c1",
     "arknights_mower/data/agent_profession.json": "44d3ba05aa370d5a9692f36152ebc942",
     "arknights_mower/data/recruit.json": "c46345ed2646d6604f937551df106116",
     "arknights_mower/data/stage_data.json": "fbc016b2f2c148fccf5452d3d878e8e0",
     "arknights_mower/data/recruit_result.json": "2b258626137de8b5bc7b0f9e00add48e",
-    "arknights_mower/data/version.json": "9452fea3679acd1db7836774ecd0d612",
+    "arknights_mower/data/version.json": "9275f189a048657461f42e26b5705c51",
     "arknights_mower/data/workshop_formula.json": "5a06829ac57c809154685c02e3337356"
   }
 }
