@@ -335,20 +335,6 @@
         "NORMAL",
         10205
     ],
-    "LMTGS_COIN_7601": [
-        "LMTGS_COIN_7601",
-        "LMTGS_COIN_7601",
-        "寻访数据契约",
-        "NORMAL",
-        10326
-    ],
-    "寻访数据契约": [
-        "LMTGS_COIN_7601",
-        "LMTGS_COIN_7601",
-        "寻访数据契约",
-        "NORMAL",
-        10326
-    ],
     "EPGS_COIN": [
         "EPGS_COIN",
         "EPGS_COIN",
@@ -670,20 +656,6 @@
         "十连寻访凭证",
         "NORMAL",
         40001
-    ],
-    "LIMITED_TKT_GACHA_10_7601": [
-        "LIMITED_TKT_GACHA_10_7601",
-        "LIMITED_TKT_GACHA_10_7601",
-        "搭车漫游寻访凭证",
-        "NORMAL",
-        40003
-    ],
-    "搭车漫游寻访凭证": [
-        "LIMITED_TKT_GACHA_10_7601",
-        "LIMITED_TKT_GACHA_10_7601",
-        "搭车漫游寻访凭证",
-        "NORMAL",
-        40003
     ],
     "7003": [
         "7003",
